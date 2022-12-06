@@ -3,7 +3,10 @@
     font-family: 'DM Sans', sans-serif;
     list-style: none;
 }
-
+.hiddenNav{
+    display: none !important;
+    transition: 0.3s;
+}
 .toggle{
     background: #c04824;
     border-radius: 50%;

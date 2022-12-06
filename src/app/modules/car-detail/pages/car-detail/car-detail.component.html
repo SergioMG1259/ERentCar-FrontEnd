@@ -1,5 +1,113 @@
 <section class="grid-container">
+    <div class="top">
+        <div class="top-card-double background">
+            <div class="column-top-1">
+                <p class="title-top">GearBox</p>
+                <p class="content-top">{{car.gearBox}}</p>
+            </div>
+            <div class="separator"></div>
+            <div class="column-top-2">
+                <p class="title-top">Seats</p>
+                <p class="content-top">{{car.seats}}</p>
+            </div>
+        </div>
+        <div class="top-card-double background">
+            <div class="column-top-1">
+                <p class="title-top">Plate Number</p>
+                <p class="content-top">{{car.licensePlate}}</p>
+            </div>
+            <div class="separator"></div>
+            <div class="column-top-2">
+                <p class="title-top">Type</p>
+                <p class="content-top">{{car.type}}</p>
+            </div>
+        </div>
+        <div class="background">
+            <div class="top-icon">
+                <p class="title-top">Fuel</p>
+                <p class="content-top">{{car.fuel}}</p>
+                <div class="icon-top">
+                    <i class='bx bxs-gas-pump'></i>
+                </div>
+            </div>
+        </div>
+        <div class="background">
+            <div class="top-icon">
+                <p class="title-top">Mileage</p>
+                <p class="content-top">{{car.mileage+" Km"}}</p>
+                <div class="icon-top">
+                    <i class='bx bxs-tachometer'></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="images background">
+            <p class="title">{{car.brand.name+" - "+car.model}}</p>
+            <div class="image-active" #imageContainer 
+            (mouseenter)="this.mouseEnter()" (mousemove)="this.mouseMove($event)" (mouseleave)="this.mouseLeave()">
+                 <img src="{{this.imageSelected.image.url}}" alt="image-selected"
+                 [style.transform]="'scale('+this.zoom+','+this.zoom+')'" [style.transform-origin]="this.zoomX+'%'+''+this.zoomY+'%'">
+            </div>
+            <div class="images-list">
+                 <img *ngFor="let itemImage of this.itemImages" src="{{itemImage.image.url}}" alt="image-car" 
+                 [ngClass]="{'image-selected':this.itemImage.selected}" (click)="this.clickSelectImage(itemImage)">
+            </div>
+        </div>
+        <div class="features background">
+            <p class="title">Features</p>
+            <div class="feature-container">
+                <div class="feature" *ngFor="let feature of car.features">
+                    <i [ngClass]="this.returnIconFeature(feature.name)"></i>
+                    <span>{{feature.name}}</span>
+                </div>
+            </div>
+            
+        </div>
+        <div class="description background">
+            <p class="title">Description</p>
+            <p class="text">{{this.car.description}}</p>
+        </div>
+        <div class="owner background">
+            <p class="title">Owner</p>
+            <div class="owner-info-profile">
+                <div class="image-owner-container">
+                    <img src="{{this.owner.img}}" alt="image owner">
+                </div>
+                <div class="owner-info">
+                    <p class="owner-name">{{this.owner.name+" "+this.owner.lastName}}</p>
+                    <app-stars [rating]="this.owner.rating"></app-stars>
+                    <div class="visit-profile">
+                        <span>Visit profile</span>
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="price background">
+            <p class="title">Price per Day</p>
+            <div class="price-container">
+                <div class="price-button">
+                    <span>{{this.car.pricePerDay+"$"}}</span>
+                    <app-my-button>Reserve now</app-my-button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="reviews background">
+            <p class="title">User reviews</p>
+            <div class="ratings-container">
+                <app-rating *ngFor="let rating of ratings" [rating]="this.rating"></app-rating>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<section class="grid-container">
+
     <div class="images background">
+        <p class="title">{{car.brand.name+" - "+car.model}}</p>
        <div class="image-active" #imageContainer 
        (mouseenter)="this.mouseEnter()" (mousemove)="this.mouseMove($event)" (mouseleave)="this.mouseLeave()">
             <img src="{{this.imageSelected.image.url}}" alt="image-selected"
@@ -11,8 +119,35 @@
        </div>
     </div>
     <div class="info background">
-        2
-        <!--<div class=focus>
+        <p class="text"><span class="sub-title">Description: </span>{{this.car.description}}</p>
+        <p class="text"><span class="sub-title">Owner: </span></p>
+        <div class="owner-info-profile">
+            <div class="image-owner-container">
+                <img src="{{this.owner.img}}" alt="image owner">
+            </div>
+            <div class="owner-info">
+                <p class="owner-name">{{this.owner.name+" "+this.owner.lastName}}</p>
+                <app-stars [rating]="this.owner.rating"></app-stars>
+                <div class="visit-profile">
+                    <span>Visit profile</span>
+                    <i class='bx bx-right-arrow-alt'></i>
+                </div>
+            </div>
+        </div>
+        <p class="text"><span class="sub-title">Features: </span></p>
+        <div class="features-container">
+            <div class="feature" *ngFor="let feature of car.features">
+                <i [ngClass]="this.returnIconFeature(feature.name)"></i>
+                <span>{{feature.name}}</span>
+            </div>
+        </div>
+        <p class="text"><span class="sub-title">Seats: </span>{{this.car.seats}}</p>
+        <p class="text"><span class="sub-title">License Plate: </span>{{this.car.licensePlate}}</p>
+        <p class="text"><span class="sub-title">Type: </span>{{this.car.type}}</p>
+        <p class="text"><span class="sub-title">Fuel: </span>{{this.car.fuel}}</p>
+        <p class="text"><span class="sub-title">GearBox: </span>{{this.car.gearBox}}</p>
+        <p class="text"><span class="sub-title">Mileage: </span>{{this.car.mileage}} km</p>
+        !!!<div class=focus>
             <div class="wrapper" [style.transform]="'translateX('+this.index+'px)'"
             [style.transition]='this.animation'>
                 <img *ngFor="let item of images;index as i" src="{{item.url}}" alt="prueba">
@@ -20,9 +155,9 @@
         </div>
         <button (click)="prev()">prev</button>
         <button (click)="next()">next</button>
-        {{this.index}}-->
+        {{this.index}}!!!
     </div>
-    <div class="owner background">
+    !!!<div class="owner background">
         <p class="title">Owner</p>
         <div class="owner-info-profile">
             <div class="image-owner-container">
@@ -37,11 +172,11 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="background">
+    </div>!!!
+    <div class="reviews background">
         <p class="title">User reviews</p>
         <div class="ratings-container">
             <app-rating *ngFor="let rating of ratings" [rating]="this.rating"></app-rating>
         </div>
     </div>
-</section>
+</section>-->

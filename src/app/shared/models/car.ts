@@ -5,6 +5,7 @@ import { ImageCar } from "./imageCar"
 export interface Car{
     id:number
     brand:Brand
+    description:string
     features:FeatureCar[]
     fuel:string
     gearBox:string

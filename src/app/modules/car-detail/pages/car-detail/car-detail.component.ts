@@ -33,10 +33,17 @@ export class CarDetailComponent implements OnInit {
   coorX!:number/*coordenadas del contenedor con respecto a la pantalla*/
   coorY!:number
   width!:number
-  height!:number
 
-  constructor() { 
-    this.car={id:1,fuel:'Petrol',gearBox:'Automatic',
+  height!:number
+  map:Map<string,string> = new Map<string, string>();
+  constructor() {
+    this.map.set('Bluetooth','bx bx-bluetooth')
+    this.map.set('AC','bx bx-wind')
+    this.map.set('Pet Friendly','bx bxl-baidu')
+    this.map.set('GPS','bx bx-map')
+
+    this.car={id:1,description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aenean in elit a nisl feugiat consequat sit amet id mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rhoncus orci sed sem porta viverra. Pellentesque fermentum diam ipsum, non consequat tortor rhoncus vel.",
+      fuel:'Petrol',gearBox:'Automatic',
       mileage:430.45,model:'Eco Sport 1.5L',licensePlate:'LX5-S82',
       pricePerDay:73.2,rating:4,seats:5,type:'Car',
       brand:{name:'Ford',url:'https://logos-world.net/wp-content/uploads/2021/03/Ford-Logo.png'},
@@ -65,17 +72,17 @@ export class CarDetailComponent implements OnInit {
     }
     this.ratings=[
       {
-        rating:4,comment:"Esto es un comentario de prueba. Espero funcione",
+        rating:4,comment:"Esto es un comentario de prueba. Espero funcione",date:'9/11/2022',
         userRating:{name:'Name',lastName:'LastName',
         img:'https://www.oficinaempleo.com/blog/wp-content/uploads/2018/01/trabajo.jpg'}
       },
       {
-        rating:4,comment:"Esto es un comentario de prueba. Espero funcione",
+        rating:4,comment:"Esto es un comentario de prueba. Espero funcione",date:'9/11/2022',
         userRating:{name:'Name',lastName:'LastName',
         img:'https://www.oficinaempleo.com/blog/wp-content/uploads/2018/01/trabajo.jpg'}
       },
       {
-        rating:4,comment:"Esto es un comentario de prueba. Espero funcione",
+        rating:4,comment:"Esto es un comentario de prueba. Espero funcione",date:'9/11/2022',
         userRating:{name:'Name',lastName:'LastName',
         img:'https://www.oficinaempleo.com/blog/wp-content/uploads/2018/01/trabajo.jpg'}
       }
@@ -92,6 +99,10 @@ export class CarDetailComponent implements OnInit {
         this.imageSelected=element
       }
     });
+  }
+  
+  returnIconFeature(feature:string):string{
+    return this.map.get(feature) as string
   }
 
   mouseEnter(){

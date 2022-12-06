@@ -14,9 +14,11 @@ export class DashboardComponent implements OnInit {
   @HostListener("window:resize",[])updateExpanded(){
     if(window.innerWidth>1024 ){
       this.expandedService.expanded$.emit(true)
+      this.expandedService.visibilityNav$.emit(true)
       this.expanded=true
     }else if(window.innerWidth<=1024 ){
       this.expandedService.expanded$.emit(false)
+      this.expandedService.visibilityNav$.emit(false)
       this.expanded=false
     }
   }

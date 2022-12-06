@@ -6,5 +6,6 @@ import { Injectable,EventEmitter } from '@angular/core';
 export class ExpandedService {
   /*expanded:boolean=true*/
   expanded$=new EventEmitter<boolean>(true)
+  visibilityNav$=new EventEmitter<boolean>(true)
   constructor() { }
 }

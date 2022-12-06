@@ -13,7 +13,7 @@ export class SearchCarComponent implements OnInit {
   cars:Car[]
   constructor(private clickOutService:ClickOutService) { 
     this.cars=[
-      {id:1,fuel:'Petrol',gearBox:'Automatic',
+      {id:1,description:'Lorem',fuel:'Petrol',gearBox:'Automatic',
       mileage:430.45,model:'Eco Sport 1.5L',licensePlate:'LX5-S82',
       pricePerDay:73.2,rating:4,seats:5,type:'Car',
       brand:{name:'Ford',url:'https://logos-world.net/wp-content/uploads/2021/03/Ford-Logo.png'},
@@ -31,7 +31,7 @@ export class SearchCarComponent implements OnInit {
         {name:'Bluetooth'},
       ]
       },
-      {id:1,fuel:'Petrol',gearBox:'Automatic',
+      {id:1,description:'Lorem',fuel:'Petrol',gearBox:'Automatic',
       mileage:430.45,model:'Eco Sport 1.5L',
       pricePerDay:73.2,rating:4,seats:5,type:'Car',licensePlate:'LX5-S82',
       brand:{name:'Ford',url:'https://logos-world.net/wp-content/uploads/2021/03/Ford-Logo.png'},
