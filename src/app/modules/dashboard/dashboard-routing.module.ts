@@ -9,6 +9,11 @@ const routes: Routes = [
   {
     path:'car-detail',
     loadChildren:()=>import('src/app/modules/car-detail/car-detail.module').then(m=>m.CarDetailModule)
+  },
+  {
+    path:'reservations',
+    loadChildren:()=>import('src/app/modules/reservation-client/reservation-client.module').
+    then(m=>m.ReservationClientModule)
   }
 ];
 

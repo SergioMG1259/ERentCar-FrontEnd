@@ -1,0 +1,16 @@
+<div class="pagination">
+    <ul class="flex">
+        <li ><button  [ngClass]="this.pageCurrent!=1?'ready':'disabled'" class="btn flex icon" [disabled]="this.pageCurrent==1"
+            (click)="this.changePage(this.pageCurrent-1)"><i class='bx bx-left-arrow-alt'></i></button></li>
+
+        <li  *ngFor="let item of pages" >
+            <button class="btn flex" [ngClass]="item.value=='...'?'dots':item.value==this.pageCurrent.toString()?'numb current':'numb'"
+            [disabled]="item.value=='...'||item.value==this.pageCurrent.toString()" (click)="this.changePage(item.value)">
+                <span>{{item.value}}</span>
+            </button>
+        </li>
+        
+        <li ><button [ngClass]="this.pageCurrent==this.totalPages?'disabled':'ready'" class="btn flex icon" [disabled]="this.pageCurrent==totalPages"
+            (click)="this.changePage(this.pageCurrent+1)"><i class='bx bx-right-arrow-alt'></i></button></li>
+    </ul>
+</div>

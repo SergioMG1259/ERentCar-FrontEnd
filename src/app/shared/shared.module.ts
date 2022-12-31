@@ -10,6 +10,7 @@ import { CardCarComponent } from './components/card-car/card-car.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { StarsComponent } from './components/stars/stars.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RatingComponent } from './components/rating/rating.component';
     CardCarComponent,
     CarouselComponent,
     StarsComponent,
-    RatingComponent
+    RatingComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { RatingComponent } from './components/rating/rating.component';
     BorderDirective,
     FormsModule,
     StarsComponent,
-    RatingComponent
+    RatingComponent,
+    PaginationComponent
   ]
 })
 export class SharedModule { }

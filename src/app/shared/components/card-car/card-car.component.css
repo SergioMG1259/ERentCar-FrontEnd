@@ -1,9 +1,11 @@
 .card{
-    width: 240px;
+    width: auto;
     /*transition: all 0.2s;*/
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     position: relative;
     background-color: #313242;
+    border-radius: 8px;
+    overflow: hidden;
 }
 .brand-image{
     position: absolute;
@@ -20,6 +22,7 @@
 }*/
 .top-card{
     height: 155px;
+    width: 100%;
 }
 .info-card{
     padding: 10px 12px;
@@ -94,6 +97,6 @@
 }
 @media (max-width:768px){
     .card{
-        width: 300px;
+        width: auto;
     }
 }

@@ -15,7 +15,7 @@ input{
     color: #fff;
 }
 input::placeholder{
-    color: rgb(189, 189, 189);
+    color: rgb(143, 143, 143);
 }
 input:focus::placeholder {
    opacity: 0;

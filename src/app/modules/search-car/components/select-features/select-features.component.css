@@ -19,7 +19,7 @@
 }
 .content span {
     font-size: 1.1rem;
-    color: rgb(189, 189, 189);
+    color: rgb(143, 143, 143);
 }
 .content span i{
     color: #f0a535;
@@ -40,7 +40,7 @@
     justify-content: space-between;
     row-gap: 20px;
     width: 100%;
-    z-index: 1;
+    z-index: 10;
     position: absolute;
     overflow: hidden;
     padding: 10px 5px

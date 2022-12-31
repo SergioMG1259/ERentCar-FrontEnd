@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+:host{
+    display: inline-block;
+    margin-top: 10px;
+}
+*{
+    font-family: 'DM Sans', sans-serif;
+}
+.flex{
+    display: flex;
+}
+ul{
+    list-style: none; 
+    column-gap: 5px;
+}
+.btn {
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    color: white;
+}
+.icon,.numb{
+    border-radius: 8px;
+    border: 1px solid #4f4f53;
+}
+.ready,.numb{
+    cursor: pointer;
+}
+.ready.icon:hover,.numb:hover,.current{
+    background-color: #2A283D;
+    border-color: #2A283D;
+}
+.disabled{
+    border: 1px solid #323138;
+    background-color: #323138;
+    opacity: 0.6;
+}
+.numb{
+    font-size: 0.9rem;
+}
+.dots{
+    border: 0px;
+    font-size: 1.3rem;
+}
+.btn i{
+    font-size: 1.2rem;
+}
