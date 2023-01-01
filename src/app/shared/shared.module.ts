@@ -6,11 +6,11 @@ import { BorderDirective } from './directives/border.directive';
 import { MyButtonComponent } from './components/my-button/my-button.component';
 import { MyInputComponent } from './components/my-input/my-input.component';
 import { FormsModule } from '@angular/forms';
-import { CardCarComponent } from './components/card-car/card-car.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { StarsComponent } from './components/stars/stars.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +19,11 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     BorderDirective,
     MyButtonComponent,
     MyInputComponent,
-    CardCarComponent,
     CarouselComponent,
     StarsComponent,
     RatingComponent,
-    PaginationComponent
+    PaginationComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,
@@ -34,13 +34,13 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     MyOptionComponent,
     MyButtonComponent,
     MyInputComponent,
-    CardCarComponent,
     CarouselComponent,
     BorderDirective,
     FormsModule,
     StarsComponent,
     RatingComponent,
-    PaginationComponent
+    PaginationComponent,
+    CalendarComponent
   ]
 })
 export class SharedModule { }

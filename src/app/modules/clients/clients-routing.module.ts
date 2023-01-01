@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
- /*{
+  {
     path:'search',
     loadChildren:()=>import('src/app/modules/search-car/search-car.module').then(m=>m.SearchCarModule)
   },
@@ -18,10 +18,6 @@ const routes: Routes = [
     path:'rents',
     loadChildren:()=>import('src/app/modules/rent-client/rent-client.module')
     .then(m=>m.RentClientModule)
-  }*/
-  {
-    path:'client',
-    loadChildren:()=>import('src/app/modules/clients/clients.module').then(m=>m.ClientsModule)
   }
 ];
 
@@ -29,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DashboardRoutingModule { }
+export class ClientsRoutingModule { }

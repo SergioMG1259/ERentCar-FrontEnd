@@ -57,13 +57,13 @@ export class PaginationComponent implements OnInit {
     let addRatePrev
     let addRateNext
 
-    if(this.totalPages<=2*this.spaces+1){//si no funciona, era un 3
+    /*if(this.totalPages<=2*this.spaces+1){//si no funciona, era un 3
       return this.totalPages
-    }
+    }*/
     /*else if(this.pageCurrent==1||this.pageCurrent==this.totalPages){
       return 4
     }*/
-    else{/*esto es con el valor del número de pagina (1,2,3....10 o 100)*/
+    /*esto es con el valor del número de pagina (1,2,3....10 o 100)*/
       prev=this.pageCurrent-this.spaces //si no funciona es un 1
       next=this.pageCurrent+this.spaces
       addRatePrev=prev-1/*para saber a cuantos espacios esta el boton 1 del limite anterior al boton actual*/
@@ -72,7 +72,7 @@ export class PaginationComponent implements OnInit {
       add=2*this.spaces+1+this.checkSpacesToAdd(addRatePrev)+this.checkSpacesToAdd(addRateNext)
       /*3 es por el boton actual,el anterior y posterior*/ 
       return add    
-    }
+    
   }
 
   checkSpacesToAdd(value:number):number{

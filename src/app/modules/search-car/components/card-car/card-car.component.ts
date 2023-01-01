@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Car } from '../../models/car';
-import { CarouselComponent } from '../carousel/carousel.component';
+import { Car } from '../../../../shared/models/car';
+import { CarouselComponent } from '../../../../shared/components/carousel/carousel.component';
 
 @Component({
   selector: 'app-card-car',
