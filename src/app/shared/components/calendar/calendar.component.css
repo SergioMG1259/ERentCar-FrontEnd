@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+*{
+    font-family: 'DM Sans', sans-serif;
+    list-style: none;
+}
+/*:host{
+    width: 100%;
+}*/
+.flex{
+    display: flex;
+}
+.calendar{
+    background-color: #242535;
+    min-width: 260px;
+    height: 309px;
+    padding: 12px 10px;
+}
+.date{
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.icons{
+    column-gap: 5px;
+}
+.arrow{
+    background-color: #2A283D;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.week{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    row-gap: 5px;
+    column-gap: 2px;
+}
+.week-name{
+   text-align: center;
+   font-size: 0.9rem;
+   color: rgb(196, 196, 202);
+}
+.days{
+    margin-top: 10px;
+}
+.other-month{
+    color: rgb(169, 169, 173);
+}
+.day{
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 32.5px;
+    border-radius: 50%;
+}
+.select{
+    background-color: #f0a535;
+    color: white;
+}

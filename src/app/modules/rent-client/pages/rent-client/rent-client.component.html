@@ -1,1 +1,19 @@
-<p>rent-client works!</p>
+<section class="container flex">
+    <section class="schedule" [ngStyle]="{'min-width': 'calc(100% - 262px)'}">
+        <table>
+            <thead>
+                <th class="hour"></th>
+                <th *ngFor="let item of days" class="week">{{"Wednesday"+item.getDate()}}</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hour of [1,2,3,4,5,6,7,8,9,10]">
+                    <td>a</td>
+                    <td *ngFor="let item of [1,2,3,4]" [ngClass]="{'event':item==2 && hour==3}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="calendar flex">
+        <app-calendar></app-calendar>
+    </section>
+</section>

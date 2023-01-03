@@ -1,4 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 *{
     font-family: 'DM Sans', sans-serif;
+    color: white;
+}
+.flex{
+    display: flex;
+}
+.container{
+    border: solid 1px red;
+    width: 100%;
+    
+    margin: auto;
+    max-width: 1300px;
+}
+.schedule{
+    /*min-width: 255px;
+    max-width: 100%;*/
+    height: 500px;
+    border: solid 1px blue;
+    overflow: auto;
+}
+.calendar{
+    justify-content: center;
+    border: solid 1px black;
+}
+
+
+table{
+    border: solid 1px black;
+    border-collapse: collapse;
+    min-width: 100%;
+}
+th{
+    border: solid 1px red;
+   
+}
+td{
+    border: solid 1px green;
+    height: 25px;
+}
+.hour{
+    min-width: 80px;
+}
+.week{
+    min-width: 140px;
+}
+.event{
+    position: relative;
+}
+.event::after{
+    position: absolute;
+    top: 0;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    background-color: rgb(230, 100, 48);
+}
+
+
+@media (max-width:570px){
+    .container{
+        flex-wrap: wrap-reverse;
+    }
+    .schedule{
+      width: 100%;
+    }
+    .calendar{
+        width: 100%;
+    }
 }

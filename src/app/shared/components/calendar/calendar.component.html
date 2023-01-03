@@ -1,1 +1,27 @@
-<p>calendar works!</p>
+<div class="calendar">
+    <div class="date flex">
+        <p class="month-year">{{this.months[this.monthCurrent]+", "+this.yearCurrent}}</p>
+        <div class="icons flex">
+            <i class='bx bx-chevron-left arrow' (click)="changeDate(-1)"></i>
+            <i class='bx bx-chevron-right arrow' (click)="changeDate(1)"></i>
+        </div>
+    </div>
+    
+    <ul class="week">
+        <li class="week-name" *ngFor="let item of week">{{item}}</li>
+    </ul>
+    <ul class="days week">
+        <li class="day other-month" *ngFor="let item of daysLastMonth" [ngClass]="selectDayClass(item)"
+        (click)="selectDay(item)">
+            {{item.number}}
+        </li>
+        <li class="day" *ngFor="let item of days" [ngClass]="selectDayClass(item)" 
+        (click)="selectDay(item)">
+            {{item.number}}
+        </li>
+        <li class="day other-month" *ngFor="let item of daysNextMonth" [ngClass]="selectDayClass(item)" 
+        (click)="selectDay(item)">
+            {{item.number}}
+        </li>
+    </ul>
+</div>
