@@ -1,14 +1,25 @@
 <section class="container flex">
-    <section class="schedule" [ngStyle]="{'min-width': 'calc(100% - 262px)'}">
+    <section class="schedule" [ngStyle]="{'min-width': 'calc(100% - 242px)'}" >
         <table>
             <thead>
-                <th class="hour"></th>
-                <th *ngFor="let item of days" class="week">{{"Wednesday"+item.getDate()}}</th>
+                <th class="column-hour title"></th>
+                <th *ngFor="let item of days" class="week title">{{"Wednesday"+item.getDate()}}</th>
             </thead>
             <tbody>
-                <tr *ngFor="let hour of [1,2,3,4,5,6,7,8,9,10]">
-                    <td>a</td>
-                    <td *ngFor="let item of [1,2,3,4]" [ngClass]="{'event':item==2 && hour==3}"></td>
+                <tr *ngFor="let hour of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];index as i" class="hour">
+                    <td class="title">{{hour+":00"}}</td>
+                    <td *ngFor="let item of [0,1,2,3];index as j">
+                        <div *ngIf="this.matrix[i][j].index!=-1" class="event"
+                        [style.min-width]="this.matrix[i][j].lenght*100+'%'"
+                        [style.height]="this.matrix[i][j].height*60+'px'">
+                            <div class="image-container">
+                                <img src="{{this.events[this.matrix[i][j].index].img}}" alt="car-image">
+                            </div>
+                            <div class="model">
+                                {{this.events[this.matrix[i][j].index].brand + " "+this.events[this.matrix[i][j].index].model}}
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
