@@ -3,7 +3,9 @@
         <table>
             <thead>
                 <th class="column-hour title"></th>
-                <th *ngFor="let item of days" class="week title">{{"Wednesday"+item.getDate()}}</th>
+                <th *ngFor="let item of days" class="week title">
+                    {{this.daysWeek[item.getDay()]+" "+item.getDate()}}
+                </th>
             </thead>
             <tbody>
                 <tr *ngFor="let hour of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];index as i" class="hour">
@@ -25,6 +27,6 @@
         </table>
     </section>
     <section class="calendar flex">
-        <app-calendar></app-calendar>
+        <app-calendar (dateChange)="fillDaysWeek($event)"></app-calendar>
     </section>
 </section>

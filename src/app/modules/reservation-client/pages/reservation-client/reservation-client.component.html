@@ -23,48 +23,14 @@
 
 <section class="container">
     <div class="column flex">
-        <div class="card" *ngFor="let item of [1,2,3,4,5]">
-            <p class="date"><span><i class='bx bx-calendar'></i> 10/12/2022, 8:00 am - 11/12/2022, 8:00 am</span></p>
-            <div class="card-content flex">
-                <div class="left flex">
-                    <div class="status">
-                        <span>Waiting</span>
-                    </div>
-                    <div class="info">
-                        <img src="https://mclaren.scene7.com/is/image/mclaren/DSC00052_6:crop-1x1?wid=1200&hei=1200" alt="car-reservation">
-                        <div>
-                            <p class="brand">Toyota</p>
-                            <p class="model">modelo nuevo 2022</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="button">
-                    <app-my-button>Cancel</app-my-button>
-                </div>
-            </div>
-        </div>
+        <app-reservation-client-card *ngFor="let item of [1,2,3,4,5]">
+
+        </app-reservation-client-card>
     </div>
     <div class="column flex">
-        <div class="card" *ngFor="let item of [1,2,3];index as i">
-            <p class="date"><span><i class='bx bx-calendar'></i> 10/12/2022, 8:00 am - 11/12/2022, 8:00 am</span></p>
-            <div class="card-content flex">
-                <div class="left flex">
-                    <div class="status">
-                        <span>Waiting</span>
-                    </div>
-                    <div class="info">
-                        <img src="https://mclaren.scene7.com/is/image/mclaren/DSC00052_6:crop-1x1?wid=1200&hei=1200" alt="car-reservation">
-                        <div>
-                            <p class="brand">Toyota</p>
-                            <p class="model">modelo nuevo 2022</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="button">
-                    <app-my-button>Cancel</app-my-button>
-                </div>
-            </div>
-        </div>
+        <app-reservation-client-card class="card" *ngFor="let item of [1,2,3];index as i">
+            
+        </app-reservation-client-card>
     </div>
 </section>
 <app-pagination [pageCurrent]="1" [totalPages]="5"></app-pagination>

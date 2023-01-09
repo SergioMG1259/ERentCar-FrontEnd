@@ -20,6 +20,7 @@ export class RentClientComponent implements OnInit {
   events:event[]=[]
   days:Date[]=[]
   matrix:element[][]=[]
+  daysWeek:string[]=[]
   constructor() { 
     this.events=[
       {model:'Hilux 2023',brand:'Toyota',img:'https://i.pinimg.com/originals/f0/dc/02/f0dc025c9e8b4acd57a49929614a077d.jpg',
@@ -32,6 +33,8 @@ export class RentClientComponent implements OnInit {
     this.days=[
       new Date(2023,0,1,0),new Date(2023,0,2,0),new Date(2023,0,3,0),new Date(2023,0,4,23)
     ]
+    
+    this.daysWeek=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
   }
   generateMatrix(){
    for(let i=0;i<24;i++){
@@ -40,13 +43,11 @@ export class RentClientComponent implements OnInit {
       this.matrix[i][j] = {index:-1,lenght:0,height:0};
     }
    }
-   console.log(this.matrix)
   }
   fillSchedule(){
     const toHour=(1000*60*60)
     const toDays=(1000*60*60*24)
     let day1T
-    let index
     let d
     let rangeDaysEvent
     let rangeToLastDay
@@ -55,8 +56,6 @@ export class RentClientComponent implements OnInit {
     let dayPosition
     for(let i=0;i<this.events.length;i++){
       day1T=new Date(this.events[i].date2)
-      index=0
-      
       for (d = new Date(this.events[i].date1); d <= day1T; d.setDate(d.getDate() + 1)) {
        if(d>=this.days[0] && d<=this.days[3]){
           dayAuxLast.setHours(this.events[i].date1.getHours())
@@ -80,17 +79,27 @@ export class RentClientComponent implements OnInit {
               this.matrix[d.getHours()][dayPosition]={index:i,lenght:rangeToLastDay/24+1,height:1}
             }
           }
-          index++
           break
         }
       }
     }
-  
-  }
 
-  ngOnInit(): void {
+  }
+  fillDaysWeek(date:Date){
+    this.days=[]
+    let dateIterate=new Date(date.setHours(0,0))
+    let d=new Date(dateIterate)
+    for(let i=0;i<4;i++){
+      this.days.push(d)
+      d.setDate(dateIterate.getDate() + i)
+      d=new Date(d)
+    }
+    this.days[3].setHours(23,59)
+    
     this.generateMatrix()
     this.fillSchedule()
-    console.log(this.matrix)
+  }
+  ngOnInit(): void {
+    this.fillDaysWeek(new Date())
   }
 }

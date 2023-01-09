@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 interface day{
   number:number
   month:number
@@ -10,6 +10,7 @@ interface day{
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+  @Output() dateChange=new EventEmitter<Date>();
   date=new Date()
   dayCurrent:number=this.date.getDate()
   monthCurrent:number=this.date.getMonth()
@@ -83,7 +84,9 @@ export class CalendarComponent implements OnInit {
   }
 
   selectDay(day:day){
+    let dayA=new Date(day.year,day.month,day.number,0,0)
     this.daySelect=day
+    this.dateChange.emit(dayA)
   }
 
   selectDayClass(day:day):string{
