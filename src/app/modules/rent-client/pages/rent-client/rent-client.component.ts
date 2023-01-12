@@ -57,33 +57,30 @@ export class RentClientComponent implements OnInit {
     for(let i=0;i<this.events.length;i++){
       day1T=new Date(this.events[i].date2)
       for (d = new Date(this.events[i].date1); d <= day1T; d.setDate(d.getDate() + 1)) {
+        //iterar los dias que dura un evento
        if(d>=this.days[0] && d<=this.days[3]){
-          dayAuxLast.setHours(this.events[i].date1.getHours())
+          dayAuxLast.setHours(this.events[i].date1.getHours())//importantes para restar
           dayAuxFirst.setHours(this.events[i].date1.getHours())
 
           rangeDaysEvent=(this.events[i].date2.getTime()-d.getTime())/toHour
-          //el rango entre el ultimo dia del evento con el primero dentro del calendario
+          //el rango entre el ultimo dia del evento con el primero, dentro del calendario
           rangeToLastDay=(dayAuxLast.getTime()-d.getTime())/toHour
-          //el rango entre el ultima dia del calendario con el primero dentro del calendario
+          //el rango entre el ultimo dia del calendario con el primero, dentro del calendario
           dayPosition=(d.getTime()-dayAuxFirst.getTime())/toDays
           if(rangeDaysEvent<24){
-            //console.log("evento 1 "+ "i "+dayPosition+"height "+rangeDaysEvent+"width "+0)
             this.matrix[d.getHours()][dayPosition]={index:i,lenght:1,height:rangeDaysEvent+1}
           }else{
-            if(rangeToLastDay>rangeDaysEvent){
-              /*console.log("evento dentro "+ "i "+dayPosition+"height "+0+"width "+rangeDaysEvent/24)*/
+            if(rangeToLastDay>rangeDaysEvent){//si el evento dura menos o igual a los dias del calendario
               this.matrix[d.getHours()][dayPosition]={index:i,lenght:rangeDaysEvent/24+1,height:1}
             }
-            else{
-              /*console.log("evento fuera "+ "i "+dayPosition+"height "+0+"width "+rangeToLastDay/24)*/
-              this.matrix[d.getHours()][dayPosition]={index:i,lenght:rangeToLastDay/24+1,height:1}
+            else{//si el evento dura mas que el intervalo del calendario mostrado
+              this.matrix[d.getHours()][dayPosition]={index:i,lenght:Math.round(rangeToLastDay/24+1),height:1}
             }
           }
           break
         }
       }
     }
-
   }
   fillDaysWeek(date:Date){
     this.days=[]

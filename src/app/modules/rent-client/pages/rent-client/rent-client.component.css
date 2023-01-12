@@ -19,7 +19,7 @@
     height: 500px;
     /*border: solid 1px blue;*/
     overflow: auto;
-    padding-right: 1px;
+    /*padding-right: 10px;*/
 }
 .calendar{
     justify-content: center;
@@ -31,6 +31,7 @@ table{
     /*border: solid 1px black;*/
     border-collapse: collapse;
     min-width: 100%;
+    box-sizing: border-box;
 }
 th{
     padding: 8px;
@@ -40,7 +41,7 @@ th{
 }
 td{
     height: 60px;
-    border: solid 0.1px #302d44;
+    border: solid 1px #302d44;
     position:relative;
 }
 .column-hour{
@@ -59,11 +60,10 @@ td{
     top: 0;
     background-color:rgb(230, 100, 48);
     z-index: 1;
-    /*border: solid 1px rgb(230, 100, 48);*/
     padding: 4px 5px;
     border-radius: 8px;
     display: flex;
-    column-gap: 5px;
+    column-gap: 3px;
 }
 .event img{
     width: 52px;
@@ -71,7 +71,7 @@ td{
     border-radius: 10px;
 }
 .model{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     height: 52px;
     display: flex;
     align-items: center;
