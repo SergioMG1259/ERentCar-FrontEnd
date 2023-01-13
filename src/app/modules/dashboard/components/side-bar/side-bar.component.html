@@ -9,30 +9,14 @@
             <span class="option">ERentACar</span>
         </div>
         <ul>
-            <li class="active">
+            <li class="list" *ngFor="let option of options" routerLinkActive="active">
                   <b></b>
                   <b></b>
-                 <a href="#">
+                 <a routerLink='{{option.link}}' >
                     <span class="icon">
-                        <i class='bx bx-home'></i>
+                        <i class='{{option.icon}}'></i>
                     </span>
-                    <span class="option">Home</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="#">
-                    <span class="icon">
-                        <i class='bx bx-calendar-event'></i>
-                    </span>
-                    <span class="option">Reservations</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="#">
-                    <span class="icon">
-                        <i class='bx bxs-key'></i>
-                    </span>
-                    <span class="option">Rents</span>
+                    <span class="option">{{option.title}}</span>
                 </a>
             </li>
         </ul>

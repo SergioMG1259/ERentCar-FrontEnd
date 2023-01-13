@@ -51,8 +51,8 @@
 .features{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     flex-direction: column;
+    justify-content: space-between;
     height: 70px;
 }
 .feature{

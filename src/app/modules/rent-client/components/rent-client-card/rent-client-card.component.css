@@ -53,8 +53,11 @@
     height: 90px;
     border-radius: 8px;
 }
-.button{
-    width: 92px;
+.buttons{
+    width: 105px;
+    flex-wrap: wrap;
+    row-gap: 8px;
+   
 }
 app-my-button{
     width: 100%;

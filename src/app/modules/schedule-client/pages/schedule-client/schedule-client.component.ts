@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-/*interface event{
+import { Component, OnInit } from '@angular/core';
+interface event{
   model:string
   brand:string
   img:string
@@ -10,14 +10,15 @@ interface element{
   index:number
   lenght:number
   height:number
-}*/
+}
 @Component({
-  selector: 'app-rent-client',
-  templateUrl: './rent-client.component.html',
-  styleUrls: ['./rent-client.component.css']
+  selector: 'app-schedule-client',
+  templateUrl: './schedule-client.component.html',
+  styleUrls: ['./schedule-client.component.css']
 })
-export class RentClientComponent implements OnInit {
-  /*events:event[]=[]
+export class ScheduleClientComponent implements OnInit {
+
+  events:event[]=[]
   days:Date[]=[]
   matrix:element[][]=[]
   daysWeek:string[]=[]
@@ -95,11 +96,10 @@ export class RentClientComponent implements OnInit {
     
     this.generateMatrix()
     this.fillSchedule()
-  }*/
-  constructor() {
+  }
 
-  }
   ngOnInit(): void {
-   // this.fillDaysWeek(new Date())
+    this.fillDaysWeek(new Date())
   }
+
 }

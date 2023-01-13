@@ -1,11 +1,11 @@
-<section class="container">
-    <!--<section class="schedule" [ngStyle]="{'min-width': 'calc(100% - 242px)'}" >
+<section class="container flex">
+    <section class="schedule" [ngStyle]="{'min-width': 'calc(100% - 242px)'}" >
         <table>
             <thead>
-                <th class="column-hour title"></th>
-                <th *ngFor="let item of days" class="week title">
-                    {{this.daysWeek[item.getDay()]+" "+item.getDate()}}
-                </th>
+            <th class="column-hour title"></th>
+            <th *ngFor="let item of days" class="week title">
+                {{this.daysWeek[item.getDay()]+" "+item.getDate()}}
+            </th>
             </thead>
             <tbody>
                 <tr *ngFor="let hour of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];index as i" class="hour">
@@ -25,19 +25,8 @@
                 </tr>
             </tbody>
         </table>
-    </section>-->
-    <!--<section class="calendar flex">
+    </section>
+    <section class="calendar flex">
         <app-calendar (dateChange)="fillDaysWeek($event)"></app-calendar>
-    </section>-->
-    <div class="column flex">
-        <app-rent-client-card *ngFor="let item of [1,2,3,4,5]">
-
-        </app-rent-client-card>
-    </div>
-    <div class="column flex">
-        <app-rent-client-card *ngFor="let item of [1,2,3,4,5]">
-            
-        </app-rent-client-card>
-    </div>
+    </section>
 </section>
-<app-pagination [pageCurrent]="1" [totalPages]="5"></app-pagination>

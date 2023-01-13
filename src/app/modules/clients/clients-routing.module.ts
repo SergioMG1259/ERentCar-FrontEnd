@@ -18,6 +18,9 @@ const routes: Routes = [
     path:'rents',
     loadChildren:()=>import('src/app/modules/rent-client/rent-client.module')
     .then(m=>m.RentClientModule)
+  },{
+    path:'schedule',
+    loadChildren:()=>import('src/app/modules/schedule-client/schedule-client.module').then(m=>m.ScheduleClientModule)
   }
 ];
 
