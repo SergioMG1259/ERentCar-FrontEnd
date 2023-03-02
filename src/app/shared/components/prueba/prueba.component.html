@@ -1,0 +1,4 @@
+<input [type]="this.type" [placeholder]="this.placeholder"
+ [appBorder]="this.border"  (change)="contentChange($event)" [value]="content" [(ngModel)]="content" (ngModelChange)="this.modelChange.emit(this.content)">
+ <i *ngIf="this.isPassword" [ngClass]="this.showPassword?'bx bxs-show':'bx bxs-hide'" 
+ (click)="this.clickPassword()"></i>

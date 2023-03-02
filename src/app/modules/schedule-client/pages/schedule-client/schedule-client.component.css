@@ -10,6 +10,7 @@
     width: 100%;
     margin: auto;
     max-width: 1300px;
+    gap: 5px;
 }
 .schedule{
     height: 580px;
@@ -64,6 +65,21 @@ td{
     display: flex;
     align-items: center;
 }
+.schedule::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+.schedule::-webkit-scrollbar-track {
+    background-color: #2A283D;
+    border-radius: 100px;
+}
+.schedule::-webkit-scrollbar-thumb {
+    background-color: #f0a535;
+    border-radius: 100px;
+}
+.schedule::-webkit-scrollbar-corner { 
+    background: #1F1D2C;
+}
 @media (max-width:570px){
     .container{
         flex-wrap: wrap-reverse;
@@ -73,5 +89,8 @@ td{
     }
     .calendar{
         width: 100%;
+    }
+    .schedule::-webkit-scrollbar{
+        display: none;
     }
 }

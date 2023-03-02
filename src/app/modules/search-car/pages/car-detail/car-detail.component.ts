@@ -133,7 +133,6 @@ export class CarDetailComponent implements OnInit {
     this.zoomY=50
     this.zoom=1
   }
-
   /*next(){
     this.index=this.index-60
     

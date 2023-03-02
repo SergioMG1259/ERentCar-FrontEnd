@@ -11,7 +11,7 @@
          </div>
          <div class="stars center-vertical">
             <!--<i *ngFor="let item of [0,1,2,3,4]; index as i" [ngClass]="this.returnStars(i)" ></i>-->
-            <app-stars [(rating)]="this.car.rating" ></app-stars>
+            <app-stars [(rating)]="this.car.rating"></app-stars>
          </div>
       </div>
       <div class="features">
@@ -33,6 +33,6 @@
       </div>
    </div>
    <div class="button-container">
-      <app-my-button>See More</app-my-button>
+      <app-my-button (click)="this.navigateToCarDetails()">See More</app-my-button>
    </div>
 </div>

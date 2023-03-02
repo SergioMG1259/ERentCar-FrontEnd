@@ -6,13 +6,15 @@ import { SearchCarComponent } from './pages/search-car/search-car.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SelectFeaturesComponent } from './components/select-features/select-features.component';
 import { CardCarComponent } from './components/card-car/card-car.component';
+import { CarDetailComponent } from './pages/car-detail/car-detail.component';
 
 
 @NgModule({
   declarations: [
     SearchCarComponent,
     SelectFeaturesComponent,
-    CardCarComponent
+    CardCarComponent,
+    CarDetailComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../src/app/styles/input.css";
 body{
     margin: 0px;
     padding: 0px;
@@ -8,3 +9,7 @@ body{
     margin:0px;
     box-sizing: border-box;
 }
+/*.ng-touched.ng-invalid:is(input, textarea),
+.ng-dirty.ng-invalid:is(input, textarea) {
+  outline: 2px solid rgba(212, 66, 66, 0.696);
+}*/

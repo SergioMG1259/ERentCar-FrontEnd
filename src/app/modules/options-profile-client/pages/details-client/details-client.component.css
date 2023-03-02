@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+*{
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+}
+.flex{
+    display: flex;
+}
+.container{
+    width: 100%;
+}
+.info{
+    color: rgb(167, 167, 167);
+    font-size: 1.1rem;
+}
+.title{
+    font-size: 1.1rem;
+    width: 110px;
+}
+.field{
+    column-gap: 280px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px rgb(167, 167, 167);
+}
+input{
+    width: 320px;
+}
+textarea{
+    width: 320px;
+    border: solid 1px #313242;
+    border-radius: 5px;
+    height: 150px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 5px 10px 5px 10px;
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    background: #313242;
+    color: #fff;
+    resize: none;
+}
+textarea:focus{
+    border-color:#f0a535;
+}
+.textarea-field p{
+    font-size: 0.9rem;
+    color: rgb(167, 167, 167);
+}
+.many-options{
+    width: 320px;
+    justify-content: space-between;
+}
+.image-profile{
+    width: 320px;
+    justify-content: space-between;
+}
+.image-profile img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.image-buttons{
+    column-gap: 10px;
+}
+.btn{
+    width: 60px;
+    height: 35px;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete{
+    color: rgb(167, 167, 167);
+}
+.update{
+    color: #f0a535;
+}
+.btn:hover,.btn:focus{
+    background-color: #242535;
+}
+.languaje{
+    column-gap: 5px;
+    align-items: center;
+}
+.languaje p{
+    width: 62px;
+}
+.upload-button{
+    height: 35px;
+    background-color: #f0a535;
+    width: 230px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow:rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    transition: all .3s;
+    border: none;
+    align-items: center;
+    justify-content: center;
+}
+.bx-upload{
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+.upload-button:active{
+    transform: scale(0.95);
+}
+@media (max-width:768px){
+    .info{
+        width: 95%;
+        margin: auto;
+    }
+    .field{
+        flex-direction: column;
+        row-gap: 15px;
+        width: 95%;
+        margin: auto;
+    }
+    .title{
+        font-size: 1.0rem;
+    }
+    app-my-input{
+        width: 100%;
+    }
+    textarea{
+        width: 100%;
+    }
+    .many-options{
+        flex-direction: column;
+        row-gap: 15px;
+    }
+    .image-profile{
+        width: 100%;
+        justify-content: start;
+        column-gap: 20px;
+    }
+}

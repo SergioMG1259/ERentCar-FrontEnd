@@ -1,0 +1,55 @@
+<section class="container">
+    <p class="info">Update your photo and personal details here</p>
+    <div class="flex field">
+        <h5 class="title">First Names</h5>
+        <!--<app-my-input placeholder=""></app-my-input>-->
+        <input type="text" appMyInput>
+    </div>
+    <div class="flex field">
+        <h5 class="title">Last Names</h5>
+         <!--<app-my-input placeholder=""></app-my-input>-->
+        <input type="text" appMyInput>
+    </div>
+    <div class="flex field">
+        <h5 class="title">Description</h5>
+        <div class="textarea-field">
+            <textarea maxlength="200" [(ngModel)]="this.description"></textarea>
+            <p>{{200-this.description.length+" characters left"}}</p>
+        </div>
+    </div>
+    <div class="flex field">
+        <h5 class="title">Photo</h5>
+        <div class="flex image-profile">
+            <img src="https://i.pinimg.com/originals/ea/2e/87/ea2e87f2ad40e7e6bb29450bc019ac60.jpg" alt="image profile">
+            <div class="flex image-buttons">
+                <button class="btn delete">Delete</button>
+                <button class="btn update">Update</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex field">
+        <h5 class="title">Email</h5>
+         <!--<app-my-input placeholder="example@example.com" type="email"></app-my-input>-->
+        <input placeholder="example@example.com" type="email" appMyInput>
+    </div>
+    <div class="flex field">
+        <h5 class="title">Languajes</h5>
+        <div class="flex many-options">
+            <div class="flex languaje">
+                <p>Spanish</p>
+                <app-stars [showNumbers]="false" [changeStars]="true"></app-stars>
+            </div>
+            <div class="flex languaje">
+                <p>English</p>
+                <app-stars [showNumbers]="false" [changeStars]="true"></app-stars>
+            </div>
+        </div>
+    </div>
+    <div class="flex field">
+        <h5 class="title">Driver's license</h5>
+        <div class="flex many-options">
+            <button class="flex upload-button"><i class='bx bx-upload'></i>Upload file</button>
+            <button class="btn delete">Delete</button>
+        </div>
+    </div>
+</section>

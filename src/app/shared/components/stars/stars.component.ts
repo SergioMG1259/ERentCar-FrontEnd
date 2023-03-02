@@ -7,8 +7,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class StarsComponent implements OnInit {
 
-  @Input() rating!:number
-  @Input() changeStars:boolean=false
+  @Input() rating:number=0
+  @Input() changeStars:boolean=false //para habilitar los clicks
+  @Input() showNumbers:boolean=true
   @Output() ratingChange:EventEmitter<number>=new EventEmitter<number>()
 
   constructor() { 

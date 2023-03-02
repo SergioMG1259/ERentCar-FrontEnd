@@ -1,2 +1,4 @@
-<input type="text" [placeholder]="this.placeholder"
- [appBorder]="this.border" [(ngModel)]="this.model" (ngModelChange)="this.modelChange.emit(this.model)">
+<input [type]="this.type" [placeholder]="this.placeholder"
+ [appBorder]="this.border" [(ngModel)]="model" (ngModelChange)="this.modelChange.emit(this.model)">
+ <i *ngIf="this.isPassword" [ngClass]="this.showPassword?'bx bxs-show':'bx bxs-hide'" 
+ (click)="this.clickPassword()"></i>
