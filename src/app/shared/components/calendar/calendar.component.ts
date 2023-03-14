@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
 interface day{
   number:number
   month:number
@@ -11,10 +11,12 @@ interface day{
 })
 export class CalendarComponent implements OnInit {
   @Output() dateChange=new EventEmitter<Date>();
-  date=new Date()
-  dayCurrent:number=this.date.getDate()
-  monthCurrent:number=this.date.getMonth()
-  yearCurrent:number=this.date.getFullYear()
+  @Input() dateMinLimit?:Date
+  @Input()date?:Date
+  
+  dayCurrent:number=0
+  monthCurrent:number=0
+  yearCurrent:number=0
 
   week:string[]
   months:string[]
@@ -23,14 +25,21 @@ export class CalendarComponent implements OnInit {
   daysLastMonth:day[]=[]
   daysNextMonth:day[]=[]
   daySelect!:day
-
+//creo que daySelect no sirve
   constructor() {
     this.week=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
     this.months=["January","February","March","April","May","June","July","August","September",
     "October","November","December"]
+  }
+  getInitialDate(){
+    if(this.date==null){
+      this.date=new Date()
+    }
+    this.dayCurrent=this.date.getDate()
+    this.monthCurrent=this.date.getMonth()
+    this.yearCurrent=this.date.getFullYear()
     this.daySelect={number:this.dayCurrent,month:this.monthCurrent,year:this.yearCurrent}
-   }
-  
+  }
   getDays(){
     let firstDaySpace=new Date(this.yearCurrent,this.monthCurrent,1).getDay()//0 sun 1 mon ...
     let lastDayMonth=new Date(this.yearCurrent,this.monthCurrent+1,0).getDate()
@@ -84,20 +93,36 @@ export class CalendarComponent implements OnInit {
   }
 
   selectDay(day:day){
-    let dayA=new Date(day.year,day.month,day.number,0,0)
+    let dayA=new Date(day.year,day.month,day.number,0,0,0)
     this.daySelect=day
-    this.dateChange.emit(dayA)
+    this.date=dayA
+    this.dateChange.emit(this.date)
   }
-
-  selectDayClass(day:day):string{
-    if(day.number==this.daySelect.number && day.month==this.daySelect.month 
+  verifyDayLimit(day:day){
+    let dayAux=new Date(day.year,day.month,day.number,23,59,59)
+    if(this.dateMinLimit!=undefined 
+      &&(dayAux<this.dateMinLimit)){
+        return true
+    }
+    return false
+  }
+  dayClass(day:day):string{
+    /*if(day.number==this.daySelect.number && day.month==this.daySelect.month 
       && day.year==this.daySelect.year){
         return 'select'
+    }*/
+    if(day.number==this.date?.getDate() && day.month==this.date?.getMonth() 
+      && day.year==this.date?.getFullYear()){
+        return 'select'
+    }
+    else if(this.verifyDayLimit(day)){
+      return 'disabled'
     }
     return ''
   }
 
   ngOnInit(): void {
+    this.getInitialDate()
     this.getDays()
   }
 }

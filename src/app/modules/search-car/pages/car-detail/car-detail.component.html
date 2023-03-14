@@ -77,10 +77,10 @@
                 <div class="owner-info">
                     <p class="owner-name">{{this.owner.name+" "+this.owner.lastName}}</p>
                     <app-stars [rating]="this.owner.rating"></app-stars>
-                    <div class="visit-profile">
+                    <!--<div class="visit-profile">
                         <span>Visit profile</span>
                         <i class='bx bx-right-arrow-alt'></i>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -89,7 +89,10 @@
             <div class="price-container">
                 <div class="price-button">
                     <span>{{this.car.pricePerDay+"$"}}</span>
-                    <app-my-button>Reserve now</app-my-button>
+                    <!--<app-my-button (click)="this.click()"></app-my-button>-->
+                    <!--<button  routerLink="reservation" [queryParams]="{dialog: true}" appMyButton>Reserve now</button>-->
+                    <button (click)="this.openDialog()" appMyButton>Reserve now</button>
+                    <!--<button routerLink="dialog" appMyButton>Reserve now</button>-->
                 </div>
             </div>
         </div>
@@ -103,7 +106,7 @@
         </div>
     </div>
 </section>
-
+<router-outlet></router-outlet>
 <!--<section class="grid-container">
 
     <div class="images background">

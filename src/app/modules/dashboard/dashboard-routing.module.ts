@@ -22,6 +22,9 @@ const routes: Routes = [
   {
     path:'client',
     loadChildren:()=>import('src/app/modules/clients/clients.module').then(m=>m.ClientsModule)
+  },{
+    path:'owner',
+    loadChildren:()=>import('src/app/modules/owners/owners.module').then(m=>m.OwnersModule)
   }
 ];
 

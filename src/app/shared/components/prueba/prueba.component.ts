@@ -1,5 +1,6 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { DialogRef } from 'src/app/core/dialog/dialog-ref';
 
 @Component({
   selector: 'app-prueba',
@@ -30,7 +31,7 @@ export class PruebaComponent implements OnInit,ControlValueAccessor {
   onChangeCb!:Function
   onTouchCb?:()=>void
 
-  constructor() { 
+  constructor(private dialogRef: DialogRef) { 
   }
   contentChange($event:any){
     this.onChangeCb($event.target.value);

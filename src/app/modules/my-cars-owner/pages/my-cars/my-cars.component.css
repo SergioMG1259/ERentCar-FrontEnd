@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+*{
+    font-family: 'DM Sans', sans-serif;
+    list-style: none;
+    color: white;
+}
+.flex{
+    display: flex;
+}
+.container{
+    margin: auto;
+    max-width: 1300px;
+}
+.my-cars{
+    width: 100%;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+    column-gap: 15px;
+    row-gap: 10px;
+}
+.car-card{
+    background-color: #242535;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 250px;
+}
+.top-card{
+    width: 100%;
+    height: 160px;
+    position: relative;
+}
+.car-card img{
+    width: 100%;
+    height: 100%;
+}
+.price{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 70px;
+    height: 50px;
+    background-color: #313242;
+    border-top-left-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+.bottom-card{
+    padding: 0px 5px;
+    height: 90px;
+}
+.bottom-card p{
+    margin: 5px 0px 8px 0px;
+}
+.buttons{
+    justify-content: space-evenly;
+}
+.buttons button{
+    width: 105px;
+}
+@media (max-width:768px){
+    .my-cars{
+        padding: 0px 5px;
+    }
+}

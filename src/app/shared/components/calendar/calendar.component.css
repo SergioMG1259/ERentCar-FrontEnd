@@ -47,15 +47,29 @@
     margin-top: 10px;
 }
 .other-month{
-    color: rgb(169, 169, 173);
+    color: rgb(139, 139, 144);
 }
 .day{
     font-size: 0.8rem;
     text-align: center;
-    line-height: 32.5px;
-    border-radius: 50%;
+    color: white;
+    /*line-height: 32.5px;
+    border-radius: 50%;*/
 }
 .select{
     background-color: #f0a535;
     color: white;
+}
+.disabled{
+    color: rgb(85, 85, 85);
+}
+button{
+    background-color: transparent;
+    border: none;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 32.5px;
+    border-radius: 50%;
+    
+    width: 100%;
 }

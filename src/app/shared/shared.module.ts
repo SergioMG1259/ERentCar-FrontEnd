@@ -14,6 +14,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { PruebaComponent } from './components/prueba/prueba.component';
 import { MyInputDirective } from './directives/my-input.directive';
 import { MyButtonDirective } from './directives/my-button.directive';
+import { MyCheckboxComponent } from './components/my-checkbox/my-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MyButtonDirective } from './directives/my-button.directive';
     PruebaComponent,
     MyInputDirective,
     MyButtonDirective,
+    MyCheckboxComponent,
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { MyButtonDirective } from './directives/my-button.directive';
     CalendarComponent,
     PruebaComponent,
     MyInputDirective,
-    MyButtonDirective
+    MyButtonDirective,
+    MyCheckboxComponent
   ]
 })
 export class SharedModule { }

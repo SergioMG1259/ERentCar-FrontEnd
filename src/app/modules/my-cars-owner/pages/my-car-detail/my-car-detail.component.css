@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+*{
+    font-family: 'DM Sans', sans-serif;
+    list-style: none;
+    color: white;
+    list-style: none;
+}
+.flex{
+    display: flex;
+}
+.container{
+    column-gap: 40px;
+    row-gap: 20px;
+    margin: auto;
+    max-width: 1300px;
+}
+.background{
+    background-color: #242535;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.details-container{
+    min-height: 350px;
+    padding: 15px 18px;
+}
+.options-container{
+    width: 260px;
+    height: 220px;
+    padding: 20px 0px;
+}
+.option{
+    align-items: center;
+    column-gap: 10px;
+    margin-left: 30px;
+    width: 150px;
+    cursor: pointer;
+}
+.option:nth-child(n + 2){
+    margin-top: 20px;
+}
+.option i{
+    font-size: 1.6rem;
+}
+.option p{
+    font-size: 1.1rem;
+}
+.option.selected i,.option.selected p{
+    transition: color 0.2s ;
+    color: #11942b;
+}
+.section{
+    transition: all 0.2s ;
+}
+/****** Info* ******/
+.basic-info{
+    column-gap: 20px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+}
+.margins{
+    margin-top: 25px;
+}
+.part-info{
+    flex-direction: column;
+    row-gap: 10px;
+}
+.my-select{
+    width: 170px;
+}
+.buttons-options{
+    width: 170px;
+}
+.button-op{
+    background-color: transparent;
+    border: solid 1px #f0a535;
+    color: #f0a535;
+    cursor: pointer;
+    min-width: 85px;
+    padding: 10px 8px;
+    transition:  border,color,background-color 0.2s;
+}
+.btn-left{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.btn-right{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.btn-select{
+    background-color: #f0a535;
+    border: solid 1px #f0a535;
+    color: white;
+}
+.input-info{
+    width: 170px;
+}
+textarea{
+    width: 320px;
+    border: solid 1px #313242;
+    border-radius: 5px;
+    height: 120px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 5px 10px 5px 10px;
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    background: #313242;
+    color: #fff;
+    resize: none;
+}
+textarea:focus{
+    border-color:#f0a535;
+}
+.textarea-field p{
+    font-size: 0.9rem;
+    color: rgb(167, 167, 167);
+}
+/*****Feature*****/
+.feature-info{
+    column-gap: 25px;
+    row-gap: 25px;
+    flex-wrap: wrap;
+}
+.check-container{
+    background-color: #313242;
+    align-items: center;
+    width: 210px;
+    height: 70px;
+    padding: 0px 8px;
+}
+.check-left{
+    width: 50px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-right: solid 2px #f0a535;
+}
+.check-right{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    font-size: 1.1rem;
+    column-gap: 6px;
+}
+.check-right i{
+    margin-left: 12px;
+}
+/****** Images* ******/
+.images-info{
+    column-gap: 25px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+}
+.shape{
+    width: 200px;
+    height: 160px;
+    background-color: #313242;
+}
+.add-image{
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.add-image .bx-plus{
+    font-size: 2.8rem;
+}
+.image-container{
+    position: relative;
+}
+.image-container img{
+    width: 100%;
+    height: 100%;
+}
+.image-container .bx-trash{
+    background-color: #242535;
+    border-radius: 50%;
+    color: #f0a535;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.1rem;
+    padding: 8px;
+    cursor: pointer;
+}
+/****** Location* ******/
+.input-location{
+    align-items: center;
+    column-gap: 8px;
+}
+.input-location i{
+    font-size: 1.2rem;
+}
+.input-location input{
+    width: 240px;
+}
+.input-location .bx-trash{
+    color: rgb(134, 15, 7);
+    cursor: pointer;
+}
+@media (max-width:768px){
+    .container{
+        flex-direction: column-reverse;
+        margin: auto;
+    }
+    .details-container{
+        width: 90% !important;
+        margin: auto;
+    }
+    .options-container{
+        width: 90%;
+        margin: auto;
+    }
+    textarea{
+        width: 190px;
+    }
+    .images-info{
+        column-gap: 10px;
+        row-gap: 15px;
+        justify-content: center;
+    }
+    .shape{
+        width: 140px;
+        height: 90px;
+    }
+    .add-image .bx-plus{
+        font-size: 2.0rem;
+    }
+}

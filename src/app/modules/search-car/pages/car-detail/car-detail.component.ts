@@ -1,8 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DialogService } from 'src/app/core/dialog/dialog.service';
 import { Car } from 'src/app/shared/models/car';
 import { ImageCar } from 'src/app/shared/models/imageCar';
 import { Owner } from 'src/app/shared/models/owner';
 import { Rating } from 'src/app/shared/models/rating';
+import { DialogReservationComponent } from '../../components/dialog-reservation/dialog-reservation.component';
+import {Subscription} from 'rxjs';
 
 export interface ItemImageCar{
     image:ImageCar;
@@ -36,7 +40,8 @@ export class CarDetailComponent implements OnInit {
 
   height!:number
   map:Map<string,string> = new Map<string, string>();
-  constructor() {
+  //routeQueryParams$: Subscription;
+  constructor(private dialogService:DialogService,private route: ActivatedRoute,private router: Router) {
     this.map.set('Bluetooth','bx bx-bluetooth')
     this.map.set('AC','bx bx-wind')
     this.map.set('Pet Friendly','bx bxl-baidu')
@@ -87,6 +92,11 @@ export class CarDetailComponent implements OnInit {
         img:'https://www.oficinaempleo.com/blog/wp-content/uploads/2018/01/trabajo.jpg'}
       }
     ]
+    /*this.routeQueryParams$ = route.queryParams.subscribe(params => {
+      if (params['dialog']) {
+        this.openDialog()
+      }
+    });*/
   }
   
   clickSelectImage(select:ItemImageCar){
@@ -157,9 +167,18 @@ export class CarDetailComponent implements OnInit {
       this.index=-300
     }
   }*/
-
+  openDialog(){
+    const dialogRef=this.dialogService.open(DialogReservationComponent,{ data: 'John' })
+    /*dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.router.navigate(['.'], { relativeTo: this.route });
+    });*/
+  }
   ngOnInit(): void {
     this.imageSelected=this.itemImages[0]
     this.itemImages[0].selected=true
   }
+  /*ngOnDestroy() {
+    this.routeQueryParams$.unsubscribe();
+  }*/
 }

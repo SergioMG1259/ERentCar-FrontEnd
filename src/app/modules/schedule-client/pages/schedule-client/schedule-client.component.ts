@@ -22,6 +22,7 @@ export class ScheduleClientComponent implements OnInit {
   days:Date[]=[]
   matrix:element[][]=[]
   daysWeek:string[]=[]
+  daySelect:Date=new Date()
   constructor() { 
     this.events=[
       {model:'Hilux 2023',brand:'Toyota',img:'https://i.pinimg.com/originals/f0/dc/02/f0dc025c9e8b4acd57a49929614a077d.jpg',

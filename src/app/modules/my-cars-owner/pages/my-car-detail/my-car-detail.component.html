@@ -1,0 +1,166 @@
+<section class="flex container">
+    <section class="background details-container" [ngStyle]="{'width': 'calc('+'100%'+' - '+'300px)'}" [ngSwitch]="this.optionSelected">
+        <div *ngSwitchCase="'Information'" class="section">
+           <div class="flex basic-info">
+                <div class="flex part-info">
+                    <h3>Brands</h3>
+                    <app-my-select placeholder="Brands" class="my-select">
+                        <app-my-option value="Toyota">Toyota</app-my-option>
+                        <app-my-option value="Audi">Audi</app-my-option>
+                        <app-my-option value="Nissan">Nissan</app-my-option>
+                        <app-my-option value="Hyundai ">Hyundai</app-my-option>
+                    </app-my-select>
+                </div>
+                <div class="flex part-info">
+                    <h3>Model</h3>
+                    <app-my-select placeholder="Models" class="my-select">
+                        <app-my-option value="1">New Model</app-my-option>
+                        <app-my-option value="2">New Model</app-my-option>
+                        <app-my-option value="3">New Model</app-my-option>
+                        <app-my-option value="4 ">New Model</app-my-option>
+                    </app-my-select>
+                </div>
+                <div class="flex part-info">
+                    <h3>Type</h3>
+                    <app-my-select placeholder="Type" class="my-select">
+                        <app-my-option value="1">Cars</app-my-option>
+                        <app-my-option value="2">SUVs</app-my-option>
+                        <app-my-option value="3">Minivans</app-my-option>
+                        <app-my-option value="4">Trucks</app-my-option>
+                        <app-my-option value="5">Vans</app-my-option>
+                     </app-my-select>
+                </div>
+                <div class="flex part-info">
+                    <h3>Seats</h3>
+                    <app-my-select placeholder="Seats" class="my-select">
+                        <app-my-option value="1">2</app-my-option>
+                        <app-my-option value="2">4</app-my-option>
+                        <app-my-option value="3">5</app-my-option>
+                        <app-my-option value="4">7</app-my-option>
+                        <app-my-option value="5">9</app-my-option>
+                    </app-my-select>
+                </div>
+           </div>
+           <div class="flex basic-info margins">
+                <div class="flex part-info">
+                    <h3>Fuel</h3>
+                    <div class="buttons-options">
+                        <button class="button-op btn-left" 
+                        [ngClass]="{'btn-select':this.fuelOption=='Petrol'}" (click)="this.fuelOption='Petrol'">Petrol</button>
+                        <button class="button-op btn-right"
+                        [ngClass]="{'btn-select':this.fuelOption=='Diesel'}" (click)="this.fuelOption='Diesel'">Diesel</button>
+                    </div>
+                </div>
+                <div class="flex part-info">
+                    <h3>Gearbox</h3>
+                    <div class="buttons-options">
+                        <button class="button-op btn-left"
+                        [ngClass]="{'btn-select':this.gearboxOption=='Automatic'}" (click)="this.gearboxOption='Automatic'">Automatic</button>
+                        <button class="button-op btn-right"
+                        [ngClass]="{'btn-select':this.gearboxOption=='Manual'}" (click)="this.gearboxOption='Manual'">Manual</button>
+                    </div>
+                </div>
+           </div>
+           <div class="flex basic-info margins">
+                <div class="flex part-info">
+                    <h3>Plate Number</h3>
+                    <input appMyInput type="text" class="input-info" maxlength="7" placeholder="Plate Number">
+                </div>
+                <div class="flex part-info">
+                    <h3>Mileage (Km)</h3>
+                    <input appMyInput type="text" class="input-info" placeholder="Mileage">
+                </div>
+                <div class="flex part-info">
+                    <h3>Price per day</h3>
+                    <input appMyInput type="text" class="input-info" placeholder="Price">
+                </div>
+                <div class="flex part-info">
+                    <h3>Money</h3>
+                    <div class="buttons-options">
+                        <button class="button-op btn-left"
+                        [ngClass]="{'btn-select':this.moneyOption=='PEN'}" (click)="this.moneyOption='PEN'">PEN</button>
+                        <button class="button-op btn-right"
+                        [ngClass]="{'btn-select':this.moneyOption=='USD'}" (click)="this.moneyOption='USD'">USD</button>
+                    </div>
+                </div>
+           </div>
+           <div class="flex basic-info margins">
+                <div class="flex part-info">
+                    <h3>Add wheelChair</h3>
+                    <div class="buttons-options">
+                        <button class="button-op btn-left"
+                        [ngClass]="{'btn-select':this.addWheelchair}" (click)="this.addWheelchair=true">Yes</button>
+                        <button class="button-op btn-right"
+                        [ngClass]="{'btn-select':!this.addWheelchair}" (click)="this.addWheelchair=false">No</button>
+                    </div>
+                </div>
+                <div class="flex part-info">
+                    <h3>Add child seat</h3>
+                    <div class="buttons-options">
+                        <button class="button-op btn-left"
+                        [ngClass]="{'btn-select':this.addChildSeat}" (click)="this.addChildSeat=true">Yes</button>
+                        <button class="button-op btn-right"
+                        [ngClass]="{'btn-select':!this.addChildSeat}" (click)="this.addChildSeat=false">No</button>
+                    </div>
+                </div>
+           </div>
+           <div class="flex basic-info margins">
+            <div class="flex part-info">
+                <h3>Description</h3>
+                <div class="textarea-field">
+                    <textarea maxlength="200" [(ngModel)]="this.description"></textarea>
+                    <p>{{200-this.description.length+" characters left"}}</p>
+                </div>
+            </div>
+           </div>
+        </div>
+        <div *ngSwitchCase="'Features'" class="section">
+            <h3>Select features (min 4)</h3>
+            <div class="flex margins feature-info">
+                <div class="flex check-container" *ngFor="let item of [1,2,3,4,5,6]">
+                    <div class="flex check-left">
+                        <app-my-checkbox></app-my-checkbox>
+                    </div>
+                    <div class="flex check-right">
+                        <i class='bx bx-bluetooth'></i>
+                        <p>Bluetooth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="'Images'" class="section">
+            <h3>Select images from car (6)</h3>
+            <div class="flex margins images-info">
+                <div class="shape flex add-image" (click)="this.clickAddImage()">
+                    <i class='bx bx-plus'></i>
+                </div>
+                <div class="shape image-container" *ngFor="let image of this.imagesArray;index as i">
+                    <img src="https://www.autopista.es/uploads/s1/79/57/04/8/fordecosport01.jpeg" alt="car image">
+                    {{image}}
+                    <i class='bx bx-trash' (click)="this.clickDeleteImage(i)"></i>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="'Locations'" class="section">
+            <div>
+                <ng-container *ngFor="let item of this.getLocations().controls;index as i">
+                    <div class="flex part-info">
+                        <h3>Location {{i+1}}</h3>
+                        <div class="flex input-location">
+                            <i class='bx bx-map'></i>
+                            <input appMyInput type="text">
+                            <i class='bx bx-trash' (click)="this.clickDeleteLocationRow(i)"></i>
+                        </div>
+                    </div>
+                </ng-container>
+                <button appMyButton (click)="this.clickAddLocationRow()" [disabled]="this.getLocations().length>2">Add Location</button>
+            </div>
+        </div>
+    </section>
+    <ul class="background options-container">
+        <li (click)="this.optionSelected=option" class="flex option" *ngFor="let option of options" [ngClass]="{'selected':this.optionSelected==option}">
+            <i class='bx bx-check-circle'></i>
+            <p>{{option}}</p>
+        </li>
+    </ul>
+</section>

@@ -11,17 +11,20 @@
         <li class="week-name" *ngFor="let item of week">{{item}}</li>
     </ul>
     <ul class="days week">
-        <li class="day other-month" *ngFor="let item of daysLastMonth" [ngClass]="selectDayClass(item)"
-        (click)="selectDay(item)">
-            {{item.number}}
+        <li *ngFor="let item of daysLastMonth" 
+        >
+            <button class="other-month" (click)="selectDay(item)" [ngClass]="dayClass(item)" [disabled]="this.verifyDayLimit(item)">{{item.number}}</button>
+            
         </li>
-        <li class="day" *ngFor="let item of days" [ngClass]="selectDayClass(item)" 
-        (click)="selectDay(item)">
-            {{item.number}}
+        <li *ngFor="let item of days"  
+        >
+            <button class="day" (click)="selectDay(item)" [ngClass]="dayClass(item)" [disabled]="this.verifyDayLimit(item)">{{item.number}}</button>
+            
         </li>
-        <li class="day other-month" *ngFor="let item of daysNextMonth" [ngClass]="selectDayClass(item)" 
-        (click)="selectDay(item)">
-            {{item.number}}
+        <li *ngFor="let item of daysNextMonth" 
+        >
+            <button class="other-month" (click)="selectDay(item)" [ngClass]="dayClass(item)" [disabled]="this.verifyDayLimit(item)">{{item.number}}</button>
+            
         </li>
     </ul>
 </div>

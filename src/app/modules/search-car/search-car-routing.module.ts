@@ -11,7 +11,11 @@ const routes: Routes = [
     path:'car-detail/:i',
     component:CarDetailComponent
   }
-];
+];// /reservation for routing dialog
+/*,{
+    path:'car-detail/:i/reservation',
+    component:CarDetailComponent
+  } */
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

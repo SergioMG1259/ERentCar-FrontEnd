@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExpandedService } from '../../services/expanded.service';
 interface option{
@@ -12,6 +12,7 @@ interface option{
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
+  rol:String="client"
   expanded!:boolean
   hiddenNav:boolean
   options:option[]
@@ -23,12 +24,24 @@ export class SideBarComponent implements OnInit {
     }else{
       this.hiddenNav=false
     }
-    this.options=[
-      {title:'Search',icon:'bx bx-search-alt-2',link:'/Dashboard/client/search'},
-      {title:'Reservations',icon:'bx bx-calendar-event',link:'/Dashboard/client/reservations'},
-      {title:'Rents',icon:'bx bxs-key',link:'/Dashboard/client/rents'},
-      {title:'Schedule',icon:'bx bx-stopwatch',link:'/Dashboard/client/schedule'}
-    ]
+
+    if(this.rol=='owner'){
+      this.options=[
+        {title:'Search',icon:'bx bx-search-alt-2',link:'/Dashboard/client/search'},
+        {title:'Reservations',icon:'bx bx-calendar-event',link:'/Dashboard/client/reservations'},
+        {title:'Rents',icon:'bx bxs-key',link:'/Dashboard/client/rents'},
+        {title:'Schedule',icon:'bx bx-stopwatch',link:'/Dashboard/client/schedule'}
+      ]
+    }
+    else{
+      this.options=[
+        {title:'My cars',icon:'bx bxs-car-garage',link:'/Dashboard/owner/my-cars'},
+        {title:'Reservations',icon:'bx bx-calendar-event',link:'/Dashboard/owner/reservations'},
+        {title:'Rents',icon:'bx bxs-key',link:'/Dashboard/owner/rents'},
+        {title:'Schedule',icon:'bx bx-stopwatch',link:'/Dashboard/owner/schedule'}
+      ]
+    }
+    
   }
 
   clickToggle(){

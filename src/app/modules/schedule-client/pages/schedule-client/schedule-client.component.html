@@ -27,6 +27,6 @@
         </table>
     </section>
     <section class="calendar flex">
-        <app-calendar (dateChange)="fillDaysWeek($event)"></app-calendar>
+        <app-calendar (dateChange)="fillDaysWeek($event)" [date]="this.daySelect"></app-calendar>
     </section>
 </section>

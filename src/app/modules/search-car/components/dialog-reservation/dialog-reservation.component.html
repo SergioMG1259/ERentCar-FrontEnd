@@ -1,0 +1,75 @@
+<section class="dialog">
+    <i class='bx bx-x' (click)="this.close()"></i>
+    <p class="title">Select dates</p>
+    <div class="flex select-dates margins">
+        <div class="flex container-calendar">
+            <p>Initial date</p>
+            <app-calendar [dateMinLimit]="this.today" [date]="this.initialDate" (dateChange)="this.changeInitialDate($event)"></app-calendar>
+            <div class="flex hour">
+                <button class="flex button-hour" [disabled]="this.initialHour==0 || (this.isDaySelectToday() && this.initialHour==this.minHourIni)" 
+                (click)="this.changeInitialHour(-1)"><i class='bx bx-minus'></i></button>
+                
+                <span class="hour-text">{{this.initialHour+":00 "}}<span>{{this.initialHour<12?'am':'pm'}}</span></span>
+                
+                <button class="flex button-hour" [disabled]="this.initialHour==23 || (this.isTheSameDay(this.initialDate,finalDate) && this.initialHour==22)"
+                (click)="this.changeInitialHour(1)"><i class='bx bx-plus'></i></button>
+            </div>
+        </div>
+        <div class="flex container-calendar">
+            <p>Final date</p>
+            <app-calendar [dateMinLimit]="this.minFinalDate" [date]="this.finalDate" (dateChange)="this.changeFinalDate($event)"></app-calendar>
+            <div class="flex hour">
+                <button class="flex button-hour" [disabled]="this.finalHour==0 ||!this.isTheSameDay(this.initialDate,this.finalDate) ||(this.isTheSameDay(this.initialDate,this.finalDate) && this.finalHour==this.minHourFin)" 
+                (click)="this.changeFinalHour(-1)"><i class='bx bx-minus'></i></button>
+                
+                <span class="hour-text">{{this.finalHour+":00 "}}<span>{{this.finalHour<12?'am':'pm'}}</span></span>
+                
+                <button class="flex button-hour" [disabled]="this.finalHour==23||!this.isTheSameDay(this.initialDate,this.finalDate) "
+                (click)="this.changeFinalHour(1)"><i class='bx bx-plus'></i></button>
+            </div>
+        </div>
+    </div>
+    <p class="title">Additional services</p>
+    <div class="margins select-extras">
+        <app-my-checkbox [(model)]="this.selectChildrenChair">Child seat (10$)</app-my-checkbox>
+        <app-my-checkbox [(model)]="this.selectWheelChair">Wheelchair (20$)</app-my-checkbox>
+     </div>
+    <p class="title">Select place</p>
+    <div class="flex select-place margins">
+        <div class="flex place">
+            <i class='bx bx-map'></i>
+            <p>Avenida La marina cdra 23</p>
+        </div>
+        <div class="flex place">
+            <i class='bx bx-map'></i>
+            <p>Avenida La marina cdra 23</p>
+        </div>
+        <div class="flex place">
+            <i class='bx bx-map'></i>
+            <p>Avenida La marina cdra 23</p>
+        </div>
+    </div>
+    <p class="title">Total</p>
+    <div class="flex margins total">
+        <div class="flex cost">
+            <p>Cost per rental time</p>
+            <p>{{"$ "+this.costTimeRent}}</p>
+        </div>
+        <div class="flex cost">
+            <p>Cost to include child seat</p>
+            <p>10$</p>
+        </div>
+        <div class="flex cost">
+            <p>Cost to include wheelchair</p>
+            <p>20$</p>
+        </div>
+        <div class="flex cost">
+            <p class="important">Total cost</p>
+            <p class="important">80$</p>
+        </div>
+    </div>
+    <div class="button-container">
+        <button appMyButton (click)="this.calculateCostRentTime()">Book vehicle</button>
+    </div>
+</section>
+

@@ -1,7 +1,7 @@
-:host{
+/*:host{
     display: inline-block;
     position: relative;
-}
+}*/
 input{
     width: 100%;
     border: solid 1px #313242;
@@ -38,4 +38,11 @@ input::-ms-clear, input::-ms-reveal {
 .ng-touched.ng-invalid:is(input, textarea),
 .ng-dirty.ng-invalid:is(input, textarea) {
   outline: 2px solid #bd0c0c;
+}
+.overlay{
+    max-width: 100px;
+    max-height: 100px;
+}
+p{
+    color: black;
 }

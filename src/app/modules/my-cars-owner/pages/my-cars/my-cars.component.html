@@ -1,0 +1,22 @@
+<section class="container">
+    <button appMyButton>Add new Car</button>
+    <div class="my-cars">
+        <div class="car-card" *ngFor="let item of [1]">
+            <div class="top-card">
+                <img src="https://www.autopista.es/uploads/s1/79/57/04/8/fordecosport01.jpeg" alt="car image">
+                <div class="flex price">
+                    <p>12$ /hr</p>
+                </div>
+            </div>
+            
+            <div class="bottom-card">
+                <p>Toyota Modelo Nuevo 2019</p>
+                <div class="flex buttons">
+                    <button appMyButton (click)="this.navigateToMyCarDetails()">Details</button>
+                    <button appMyButton color="cancel">Delete</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>

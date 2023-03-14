@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { SelectFeaturesComponent } from './components/select-features/select-features.component';
 import { CardCarComponent } from './components/card-car/card-car.component';
 import { CarDetailComponent } from './pages/car-detail/car-detail.component';
+import { DialogReservationComponent } from './components/dialog-reservation/dialog-reservation.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CarDetailComponent } from './pages/car-detail/car-detail.component';
     SearchCarComponent,
     SelectFeaturesComponent,
     CardCarComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    DialogReservationComponent
   ],
   imports: [
     CommonModule,

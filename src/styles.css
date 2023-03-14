@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../src/app/styles/input.css";
+@import '@angular/cdk/overlay-prebuilt.css';
 body{
     margin: 0px;
     padding: 0px;
+    background-color: #1F1D2C;
 }
 *{
     padding: 0px;
@@ -13,3 +15,13 @@ body{
 .ng-dirty.ng-invalid:is(input, textarea) {
   outline: 2px solid rgba(212, 66, 66, 0.696);
 }*/
+.overlay-backdrop {
+  background-color: rgba(18, 17, 17, 0.884);
+  backdrop-filter: blur(3px);
+}
+.overlay-panel {
+  /*display: flex;
+  flex-direction: column;*/
+  background-color: #ba6b6b;
+  /*padding: 20px;*/
+}
