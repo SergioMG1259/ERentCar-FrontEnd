@@ -3,5 +3,5 @@
  <i *ngIf="this.isPassword" [ngClass]="this.showPassword?'bx bxs-show':'bx bxs-hide'" 
  (click)="this.clickPassword()"></i>-->
  <div class="overlay">
-    <p>Hola!</p>
+    <p (click)="click()">{{content}}!</p>
  </div>

@@ -28,13 +28,19 @@ export class PruebaComponent implements OnInit,ControlValueAccessor {
   showPassword:boolean=false
 
   content:string=""
-  onChangeCb!:Function
-  onTouchCb?:()=>void
+  protected onChangeCb?:(value:string)=>void
+  protected onTouchedCb?:()=>void
 
-  constructor(private dialogRef: DialogRef) { 
-  }
-  contentChange($event:any){
-    this.onChangeCb($event.target.value);
+  // constructor(private dialogRef: DialogRef) { 
+  // }
+  constructor(){}
+  // contentChange($event:any){
+  //   this.onChangeCb($event.target.value);
+  // }
+  click(){
+    this.content='asdasdasd'
+    this.onChangeCb?.(this.content)
+    console.log(this.onChangeCb?.(this.content))
   }
   writeValue(obj: string): void {
     this.content=obj
@@ -42,8 +48,11 @@ export class PruebaComponent implements OnInit,ControlValueAccessor {
   registerOnChange(fn: any): void {
     this.onChangeCb=fn
   }
+  // registerOnTouched(fn: any): void {
+  //   this.onTouchCb=fn
+  // }
   registerOnTouched(fn: any): void {
-    this.onTouchCb=fn
+    this.onTouchedCb=fn
   }
   setDisabledState?(isDisabled: boolean): void {
     throw new Error('Method not implemented.');

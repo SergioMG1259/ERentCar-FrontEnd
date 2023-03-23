@@ -1,0 +1,13 @@
+<h3>Select features (min 4)</h3>
+<div class="flex margins feature-info">
+    <div class="flex check-container" *ngFor="let item of this.features;index as i">
+        <div class="flex check-left">
+            <app-my-checkbox [model]="selection.isSelected(item)" (modelChange)="selection.toggle(item)"></app-my-checkbox>
+        </div>
+        <div class="flex check-right">
+            <i class='{{this.dictionary.returnIcon(item.name)}}'></i>
+            <p>{{item.name}}</p>
+        </div>
+    </div>
+</div>
+<button *ngIf="this.isForUpdate" appMyButton [disabled]="this.selection.selected.length<4 || this.formSameThatHttp==true" class="margins">Update</button>

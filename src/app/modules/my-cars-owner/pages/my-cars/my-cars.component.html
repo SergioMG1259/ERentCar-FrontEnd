@@ -1,5 +1,5 @@
 <section class="container">
-    <button appMyButton>Add new Car</button>
+    <button appMyButton (click)="this.navigateToCreateCar()">Add new Car</button>
     <div class="my-cars">
         <div class="car-card" *ngFor="let item of [1]">
             <div class="top-card">

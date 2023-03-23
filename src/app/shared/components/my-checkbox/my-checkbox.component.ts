@@ -13,6 +13,7 @@ export class MyCheckboxComponent implements OnInit {
     this.model=!this.model
     this.modelChange.emit(this.model)
   }
+  
   ngOnInit(): void {
   }
 

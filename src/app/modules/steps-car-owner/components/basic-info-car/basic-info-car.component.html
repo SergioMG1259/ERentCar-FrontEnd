@@ -1,0 +1,129 @@
+<form [formGroup]="basicInfoForm">
+    <div class="flex basic-info">
+        <div class="flex part-info">
+            <h3>Brands</h3>
+            <app-my-select placeholder="Brands" class="my-select" formControlName="brand" (modelChange)="this.changeModel($event)">
+                <app-my-option value="Toyota">Toyota</app-my-option>
+                <app-my-option value="Audi">Audi</app-my-option>
+                <app-my-option value="Nissan">Nissan</app-my-option>
+                <app-my-option value="Hyundai">Hyundai</app-my-option>
+            </app-my-select>
+        </div>
+        <div class="flex part-info">
+            <h3>Model</h3>
+            <app-my-select placeholder="Models" class="my-select" formControlName="model">
+                <app-my-option *ngFor="let model of this.modelsCar;index as i" [value]="this.modelsCar[i]">
+                   {{this.modelsCar[i]}}
+                </app-my-option>
+            </app-my-select>
+            <div *ngIf="modelControl.invalid && modelControl.touched">
+                <p class="error" *ngIf="modelControl.hasError('required')">Required field</p>
+            </div>
+        </div>
+        <div class="flex part-info">
+            <h3>Type</h3>
+            <app-my-select placeholder="Type" class="my-select" formControlName="type">
+                <app-my-option value="Car">Car</app-my-option>
+                <app-my-option value="SUV">SUV</app-my-option>
+                <app-my-option value="Minivan">Minivan</app-my-option>
+                <app-my-option value="Truck">Truck</app-my-option>
+                <app-my-option value="Van">Van</app-my-option>
+             </app-my-select>
+        </div>
+        <div class="flex part-info">
+            <h3>Seats</h3>
+            <app-my-select placeholder="Seats" class="my-select" formControlName="seat">
+                <app-my-option value="2">2</app-my-option>
+                <app-my-option value="4">4</app-my-option>
+                <app-my-option value="5">5</app-my-option>
+                <app-my-option value="7">7</app-my-option>
+                <app-my-option value="9">9</app-my-option>
+            </app-my-select>
+        </div>
+    </div>
+    <div class="flex basic-info margins">
+        <div class="flex part-info">
+            <h3>Fuel</h3>
+            <div class="buttons-options">
+                <button class="button-op btn-left" 
+                [ngClass]="{'btn-select':this.fuelOption=='Petrol'}" (click)="this.fuelOption='Petrol'">Petrol</button>
+                <button class="button-op btn-right"
+                [ngClass]="{'btn-select':this.fuelOption=='Diesel'}" (click)="this.fuelOption='Diesel'">Diesel</button>
+            </div>
+        </div>
+        <div class="flex part-info">
+            <h3>Gearbox</h3>
+            <div class="buttons-options">
+                <button class="button-op btn-left"
+                [ngClass]="{'btn-select':this.gearboxOption=='Automatic'}" (click)="this.gearboxOption='Automatic'">Automatic</button>
+                <button class="button-op btn-right"
+                [ngClass]="{'btn-select':this.gearboxOption=='Manual'}" (click)="this.gearboxOption='Manual'">Manual</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex basic-info margins">
+        <div class="flex part-info">
+            <h3>Plate Number</h3>
+            <input appMyInput type="text" class="input-info" maxlength="7" placeholder="Plate Number" formControlName="plateNumber">
+            <div *ngIf="plateNumberControl.invalid && plateNumberControl.touched">
+                <p class="error" *ngIf="plateNumberControl.hasError('required')">Required field</p>
+            </div>
+        </div>
+        <div class="flex part-info">
+            <h3>Mileage (Km)</h3>
+            <input appMyInput type="text" class="input-info" placeholder="Mileage" formControlName="mileage">
+            <div *ngIf="mileageControl.invalid && mileageControl.touched">
+                <p class="error" *ngIf="mileageControl.hasError('required')">Required field</p>
+            </div>
+        </div>
+        <div class="flex part-info">
+            <h3>Price per day</h3>
+            <input appMyInput type="text" class="input-info" placeholder="Price" formControlName="price">
+            <div *ngIf="priceControl.invalid && priceControl.touched">
+                <p class="error" *ngIf="priceControl.hasError('required')">Required field</p>
+            </div>
+        </div>
+        <div class="flex part-info">
+            <h3>Money</h3>
+            <div class="buttons-options">
+                <button class="button-op btn-left"
+                [ngClass]="{'btn-select':this.moneyOption=='PEN'}" (click)="this.moneyOption='PEN'">PEN</button>
+                <button class="button-op btn-right"
+                [ngClass]="{'btn-select':this.moneyOption=='USD'}" (click)="this.moneyOption='USD'">USD</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex basic-info margins">
+        <div class="flex part-info">
+            <h3>Add wheelChair</h3>
+            <div class="buttons-options">
+                <button class="button-op btn-left"
+                [ngClass]="{'btn-select':this.addWheelchair}" (click)="this.addWheelchair=true">Yes</button>
+                <button class="button-op btn-right"
+                [ngClass]="{'btn-select':!this.addWheelchair}" (click)="this.addWheelchair=false">No</button>
+            </div>
+        </div>
+        <div class="flex part-info">
+            <h3>Add child seat</h3>
+            <div class="buttons-options">
+                <button class="button-op btn-left"
+                [ngClass]="{'btn-select':this.addChildSeat}" (click)="this.addChildSeat=true">Yes</button>
+                <button class="button-op btn-right"
+                [ngClass]="{'btn-select':!this.addChildSeat}" (click)="this.addChildSeat=false">No</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex basic-info margins">
+        <div class="flex part-info">
+            <h3>Description</h3>
+            <div class="textarea-field">
+                <textarea maxlength="200" formControlName="description"></textarea>
+                <p>{{200-this.descriptionControl.value.length+" characters left"}}</p>
+            </div>
+            <div *ngIf="descriptionControl.invalid && descriptionControl.touched">
+                <p class="error" *ngIf="descriptionControl.hasError('required')">Required field</p>
+            </div>
+        </div>
+    </div>
+    <button *ngIf="this.isForUpdate" appMyButton [disabled]="basicInfoForm.invalid" class="margins">Update</button>
+</form>

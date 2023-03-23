@@ -1,16 +1,24 @@
 import { Component, Input, OnInit,
   ContentChildren,QueryList,Output, 
-  EventEmitter,ViewChild, ElementRef } from '@angular/core';
+  EventEmitter,ViewChild, ElementRef, forwardRef } from '@angular/core';
 import { MyOptionComponent } from '../my-option/my-option.component';
-import {startWith,switchMap,tap} from 'rxjs/operators'
-import { merge,BehaviorSubject,Observable,Subscription } from 'rxjs';
+import {filter, startWith,switchMap,takeUntil,tap} from 'rxjs/operators'
+import { merge,BehaviorSubject,Observable,Subscription, from, Subject } from 'rxjs';
 import { ClickOutService } from 'src/app/core/services/click-out.service';
 import { trigger,style,transition,animate, state } from '@angular/animations';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-my-select',
   templateUrl: './my-select.component.html',
   styleUrls: ['./my-select.component.css'],
+  providers:[
+    {
+      provide:NG_VALUE_ACCESSOR,
+      useExisting:forwardRef(()=>MySelectComponent),
+      multi:true
+    }
+  ],
   animations: [
     trigger(
       'inOutAnimation',
@@ -29,17 +37,22 @@ import { trigger,style,transition,animate, state } from '@angular/animations';
     )
   ]
 })
-export class MySelectComponent implements OnInit {
+export class MySelectComponent implements OnInit,ControlValueAccessor {
   @ViewChild('selectComponent',{ static: false }) selectComponent!: ElementRef;
   
   thereSelectedOption:number=0
   show:boolean=false
+  alive:boolean=true
   nameShow:string=''
+  queue:any//no se para que sirve
   selectionModel:MyOptionComponent[]=[]
 
   @Input()model:string|null=null/*para el enlace doble*/
   @Output() modelChange:EventEmitter<string>=new EventEmitter<string>();/*para el enlace doble*/
   @Input() placeholder:string="placeholder"
+
+  protected onChangeCb?:(value:string)=>void
+  protected onTouchedCb?:()=>void
   
   @ContentChildren(MyOptionComponent,{descendants:true}) options!:QueryList<MyOptionComponent>;
   
@@ -47,11 +60,12 @@ export class MySelectComponent implements OnInit {
   clickMenu$:Observable<boolean>=this.clickMenuSubject$.asObservable();/*observable del sujeto de bools*/
   clickMenuSub!:Subscription /*subscripcion al observable de arriba*/
   clickSub:Subscription|null=null;/*subscripcion al servicio clickOut para poder desuscribirse luego*/
-
+  private readonly destroy$ = new Subject();
 
   constructor(private clickOutService:ClickOutService) {
 
   }
+  
 
   subscribeOnOptionClick(){/*aqui solo se subscribe a lo que esta dentro del ngcontent(las opciones del select)*/
     this.options.changes.pipe(
@@ -63,6 +77,10 @@ export class MySelectComponent implements OnInit {
     ).subscribe((clickedOption:MyOptionComponent)=>this.selectOption(clickedOption));
     /*cuando se emite un optionComponent desde ese componente, se llama a la funcion selectOption*/
   }
+  emit(value:string){
+    this.onChangeCb?.(value)
+    this.modelChange.emit(value)
+  }
   protected selectOption(option:MyOptionComponent){/*
     se coloca el componente como seleccionado
     el nameShow se setea con el contenido(texto) que hay en el optionComponent
@@ -72,8 +90,9 @@ export class MySelectComponent implements OnInit {
     option.select();
     this.thereSelectedOption=1
     this.nameShow=option.content/*Texto dentro de las opciones*/
-    this.modelChange.emit(option.value)
+    this.emit(option.value)
     this.model=option.value
+    
     this.iterateOptions(option)
     this.show=false
     this.clickMenuSubject$.next(false)
@@ -91,24 +110,6 @@ export class MySelectComponent implements OnInit {
     });
   }
 
-  initIterateOptions(){/*
-    esto es en caso que se paso un valor por defecto al select
-    model es el valor que se le pasa desde la etiqueta my-select, si no se pasa algo, es null
-    se itera la lista para seleccionar al elemento que coincida
-    se compara el value de cada optionComponent(value que se le pasa en la etiqueta) con el valor
-    que se le paso por defecto
-  */
-    if(this.model){
-      this.options.forEach(optionAux=>{
-        if(optionAux.value==this.model){
-          this.thereSelectedOption=1
-          optionAux.select()
-          this.nameShow=optionAux.content
-        }
-      })
-    }
-  }
-
   clickShow(){
     this.clickMenuSubject$.next(!this.show)
     /*se emite un bool*/
@@ -124,7 +125,64 @@ export class MySelectComponent implements OnInit {
       this.clickMenuSubject$.next(false);/*se emite un bool en el sujeto de bools*/
     }
   }
-
+  canSelectValue(){
+    return !!(this.options)
+  }
+  initIterateOptions(value:any){/*
+    esto es en caso que se paso un valor por defecto al select
+    model es el valor que se le pasa desde la etiqueta my-select, si no se pasa algo, es null
+    se itera la lista para seleccionar al elemento que coincida
+    se compara el value de cada optionComponent(value que se le pasa en la etiqueta) con el valor
+    que se le paso por defecto
+  */
+    //this.model=value
+    let flag:boolean=false
+    if(this.model){
+      this.options.forEach(optionAux=>{
+        if(optionAux.value==this.model){
+          this.thereSelectedOption=1
+          optionAux.select()
+          this.nameShow=optionAux.content
+          flag=true
+        }
+      })//si no encuentra coincidencias con el model dentro de las opciones
+      if(flag==false){
+        this.emit('')
+        this.model=null
+        this.thereSelectedOption=0
+      }
+    }else{
+      this.thereSelectedOption=0
+    }
+  }
+  writeValue(value:any){
+    if (!this.alive) {
+      return;
+    }
+    
+    if (this.canSelectValue()) {
+      this.initIterateOptions(value)
+    }
+    else{
+      this.model=value//form
+    }
+     
+  }
+  registerOnChange(fn: any): void {
+    this.onChangeCb=fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouchedCb=fn
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    throw new Error('Method not implemented.');
+  }
+  trySetTouched() {
+    if (this.show) {
+      this. onTouchedCb?.();
+    }
+    
+  }
   ngOnInit(): void {/*
     se guarda la subscripcion al observable de bools(clickMenu$)
   */
@@ -149,10 +207,24 @@ export class MySelectComponent implements OnInit {
   }
 
   ngAfterContentInit(){/*despues que se inicia el ngContent*/
-    this.initIterateOptions()
+    // this.options.changes.pipe(
+    //   startWith(this.options),
+    //   filter(() => this.queue != null && this.canSelectValue()),
+    //   switchMap((options:QueryList<MyOptionComponent>)=>from(Promise.resolve(options))),
+    //   takeUntil(this.destroy$),
+    // ).subscribe(() => this.writeValue(this.queue));
+    this.options.changes.pipe(
+      startWith(this.options),
+      filter(() => this.canSelectValue()),
+      switchMap((options:QueryList<MyOptionComponent>)=>from(Promise.resolve(options))),
+      takeUntil(this.destroy$),
+    ).subscribe(() => this.writeValue(this.model));
   }
 
   ngOnDestroy(){
+    this.alive=false
+    this.destroy$.next();
+    this.destroy$.complete();
     this.clickMenuSub.unsubscribe();/*Se desuscribe al observador de bools*/
   }
 }

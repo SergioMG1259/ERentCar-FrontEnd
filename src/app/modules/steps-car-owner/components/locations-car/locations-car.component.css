@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+/* :host{
+   display: inline-block; 
+} */
+*{
+    font-family: 'DM Sans', sans-serif;
+    list-style: none;
+    color: white;
+    list-style: none;
+}
+.flex{
+    display: flex;
+}
+.container{
+    column-gap: 40px;
+    row-gap: 15px;
+    margin: auto;
+    max-width: 1300px;
+}
+.title-add{
+    margin-bottom: 20px;
+}
+.part-info{
+    flex-direction: column;
+    row-gap: 10px;
+}
+.input-location{
+    align-items: center;
+    column-gap: 8px;
+}
+.input-location i{
+    font-size: 1.3rem;
+}
+.input-location input{
+    width: 220px;
+}
+.input-location .bx-trash{
+    color: rgb(134, 15, 7);
+    cursor: pointer;
+}
+.locations-info{
+    flex-direction: column;
+    row-gap: 20px;
+}
+.locations-info .bx-plus-circle{
+    color: #f0a535;
+    cursor: pointer;
+    font-size: 2.1rem;
+}
+.location,.locations-info .bx-plus-circle{
+    margin-bottom: 20px;
+}
+.error{
+    font-size: 1.0rem;
+    color: rgba(212, 66, 66, 0.696);
+}
+@media (max-width:768px){
+    .input-location input{
+        width: 170px;
+    }
+}

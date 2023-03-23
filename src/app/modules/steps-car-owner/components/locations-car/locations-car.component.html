@@ -1,0 +1,20 @@
+<form name="locations" [formGroup]="locationsForm" class="locations-info">
+    <div formArrayName="locations">
+        <h3 *ngIf="this.getLocations().length===0" class="title-add">Add Locations</h3>
+        <ng-container *ngFor="let item of this.getLocations().controls;index as i">
+            <div class="flex part-info location">
+                <h3>Location {{i+1}}</h3>
+                <div class="flex input-location">
+                    <i class='bx bx-map'></i>
+                    <input appMyInput type="text"  [formControlName]="i">
+                    <i class='bx bx-trash' (click)="this.clickDeleteLocationRow(i)"></i>
+                </div>
+                <div *ngIf="locationsForm.invalid && this.getLocations().at(i).touched">
+                    <p class="error" *ngIf="this.getLocations().at(i).hasError('required')">Required field</p>
+                </div>
+             </div>
+        </ng-container>
+        <i class='bx bx-plus-circle' (click)="this.clickAddLocationRow()" *ngIf="this.getLocations().length<3"></i>
+    </div>
+    <button *ngIf="isForUpdate" appMyButton [disabled]="locationsForm.invalid || this.getLocations().length==0 ||this.differentValueFromHttp==false">Update</button>
+</form>

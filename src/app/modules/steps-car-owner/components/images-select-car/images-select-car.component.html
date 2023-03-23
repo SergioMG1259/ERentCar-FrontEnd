@@ -1,0 +1,14 @@
+<h3>Select images from car (6)</h3>
+<input type="file" class="file-input" accept="image/png" multiple (change)="this.selectFiles($event)" #fileUpload >
+<p *ngIf="this.error" class="error">File size not allowed max(1MB)</p>
+<div class="flex margins images-info">
+        <button class="shape flex add-image" (click)="fileUpload.click()" [disabled]="this.imagesArray.length==6">
+                <i class='bx bx-plus'></i>
+        </button>
+        <div class="shape image-container" *ngFor="let image of this.imagesArray;index as i">
+                <img [src]=image alt="car image">
+                
+                <i class='bx bx-trash' (click)="this.clickDeleteImage(i)"></i>
+        </div>
+</div>
+<button *ngIf="this.isForUpdate" appMyButton class="margins">Update</button>

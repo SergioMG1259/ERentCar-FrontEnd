@@ -7,10 +7,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./my-cars.component.css']
 })
 export class MyCarsComponent implements OnInit {
-
+  
   constructor(private router:Router,private route:ActivatedRoute) { }
   navigateToMyCarDetails(){
     this.router.navigate(['car-detail',1],{relativeTo:this.route});
+  }
+  navigateToCreateCar(){
+    this.router.navigate(['new-car'],{relativeTo:this.route});
   }
   ngOnInit(): void {
   }

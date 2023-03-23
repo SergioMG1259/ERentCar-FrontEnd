@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+/* :host{
+} */
+*{
+    font-family: 'DM Sans', sans-serif;
+    list-style: none;
+    color: white;
+    list-style: none;
+}
+.flex{
+    display: flex;
+}
+.margins{
+    margin-top: 25px;
+}
+.basic-info-section{
+    flex-direction: column;
+    row-gap: 20px;
+}
+.part-info{
+    flex-direction: column;
+    row-gap: 10px;
+}
+.basic-info{
+    column-gap: 20px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+}
+.part-info{
+    flex-direction: column;
+    row-gap: 10px;
+}
+.my-select{
+    width: 170px;
+}
+.buttons-options{
+    width: 170px;
+}
+.button-op{
+    background-color: transparent;
+    border: solid 1px #f0a535;
+    color: #f0a535;
+    cursor: pointer;
+    min-width: 85px;
+    padding: 10px 8px;
+    transition:  border,color,background-color 0.2s;
+}
+.btn-left{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.btn-right{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.btn-select{
+    background-color: #f0a535;
+    border: solid 1px #f0a535;
+    color: white;
+}
+.input-info{
+    width: 170px;
+}
+textarea{
+    width: 320px;
+    border: solid 1px #313242;
+    border-radius: 5px;
+    height: 130px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 5px 10px 5px 10px;
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    background: #313242;
+    color: #fff;
+    resize: none;
+}
+textarea:focus{
+    border-color:#f0a535;
+}
+.textarea-field p{
+    font-size: 0.9rem;
+    color: rgb(167, 167, 167);
+}
+.error{
+    font-size: 1.0rem;
+    color: rgba(212, 66, 66, 0.696);
+}
+@media (max-width:768px){
+    textarea{
+        width: 210px;
+    }
+}

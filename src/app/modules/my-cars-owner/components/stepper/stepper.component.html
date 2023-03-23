@@ -1,0 +1,21 @@
+<ng-template><ng-content ></ng-content></ng-template>
+<div class="flex container-stepper">
+    <div class="flex stepper">
+        <div *ngFor="let item of this.steps;index as i" class="flex container-circle">
+            <span class="flex circle" [ngClass]="{'active':this.indexStep>=i}">
+                {{i+1}}
+            </span>
+            <p>{{item.title}}</p>
+        </div>
+        
+        <div class="progress-bar">
+            <span class="indicator" [style.width]="(this.indexStep/(this.steps.length-1))*100+'%'"></span>
+        </div>
+    </div>
+    
+</div>
+<div class="content margins">
+    <ng-container [ngTemplateOutlet]="selected?.content">
+
+    </ng-container>
+</div>

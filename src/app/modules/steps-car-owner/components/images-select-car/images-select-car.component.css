@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+/* :host{
+     display: inline-block; 
+} */
+*{
+    font-family: 'DM Sans', sans-serif;
+    list-style: none;
+    color: white;
+    list-style: none;
+}
+.file-input{
+    display: none;
+}
+.flex{
+    display: flex;
+}
+.error{
+    margin-top: 10px;
+    color:rgba(212, 66, 66, 0.696);
+}
+.margins{
+    margin-top: 25px;
+}
+.part-info{
+    flex-direction: column;
+    row-gap: 10px;
+}
+.images-info{
+    column-gap: 25px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+}
+.shape{
+    width: 200px;
+    height: 160px;
+    background-color: #313242;
+}
+.add-image{
+    align-items: center;
+    border: none;
+    justify-content: center;
+    cursor: pointer;
+}
+.add-image .bx-plus{
+    font-size: 2.8rem;
+}
+.image-container{
+    position: relative;
+}
+.image-container img{
+    width: 100%;
+    height: 100%;
+}
+.image-container .bx-trash{
+    background-color: #242535;
+    border-radius: 50%;
+    color: #f0a535;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.1rem;
+    padding: 8px;
+    cursor: pointer;
+}
+@media (max-width:768px){
+    .images-info{
+        column-gap: 10px;
+        row-gap: 15px;
+        justify-content: center;
+    }
+    .shape{
+        width: 140px;
+        height: 90px;
+    }
+    .add-image .bx-plus{
+        font-size: 2.0rem;
+    }
+}

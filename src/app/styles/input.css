@@ -55,8 +55,9 @@
     transform: scale(0.95);
 }
 .my-button:disabled{
-    opacity: 0.65; 
+    opacity: 0.60; 
     transform: scale(1);
+    cursor: default;
 }
 /*.cancel{
     background-color: rgb(134, 15, 7)

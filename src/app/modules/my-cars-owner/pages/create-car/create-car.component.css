@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+*{
+    font-family: 'DM Sans', sans-serif;
+    list-style: none;
+    color: white;
+}
+.flex{
+    display: flex;
+}
+.container-stepper{
+    width: 100%;
+}
+.container{
+    margin: auto;
+    max-width: 1300px;
+}
+.buttons{
+    margin-top: 20px;
+}
+.buttons button{
+    width: 100px;
+}
+.button-right{
+    margin-left: 20px;
+}
