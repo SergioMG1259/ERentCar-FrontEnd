@@ -29,7 +29,7 @@ export class SearchCarComponent implements OnInit {
         {name:'GPS'},
         {name:'Bluetooth'},
         {name:'Bluetooth'},
-      ]
+      ],year:2020
       },
       {id:1,description:'Lorem',fuel:'Petrol',gearBox:'Automatic',
       mileage:430.45,model:'Eco Sport 1.5L',
@@ -47,7 +47,7 @@ export class SearchCarComponent implements OnInit {
         {name:'GPS'},
         {name:'Bluetooth'},
         {name:'Bluetooth'},
-      ]
+      ],year:2020
       },
       {id:1,description:'Lorem',fuel:'Petrol',gearBox:'Automatic',
       mileage:430.45,model:'Eco Sport 1.5L',
@@ -65,7 +65,7 @@ export class SearchCarComponent implements OnInit {
         {name:'GPS'},
         {name:'Bluetooth'},
         {name:'Bluetooth'},
-      ]
+      ],year:2020
       },
       {id:1,description:'Lorem',fuel:'Petrol',gearBox:'Automatic',
       mileage:430.45,model:'Eco Sport 1.5L',
@@ -83,7 +83,7 @@ export class SearchCarComponent implements OnInit {
         {name:'GPS'},
         {name:'Bluetooth'},
         {name:'Bluetooth'},
-      ]
+      ],year:2020
       }
     ]
   }

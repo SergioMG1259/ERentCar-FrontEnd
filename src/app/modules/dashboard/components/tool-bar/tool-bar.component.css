@@ -75,6 +75,10 @@
 .options .option{
     font-size: 1.1rem;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 @media (max-width:768px){
     .tool-bar{
         padding-left: 20px;

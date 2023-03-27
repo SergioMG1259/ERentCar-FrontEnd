@@ -1,0 +1,16 @@
+<section class="container">
+    <ul class="flex options">
+        <li routerLinkActive="active" (click)="this.navigateOptions('details')">
+            <a  [routerLink]="this.navigateToDetails()">Details</a>
+        </li>
+        <li routerLinkActive="active" (click)="this.navigateOptions('change-password')">
+            <a [routerLink]="this.navigateToChangePassword()">Password</a>
+        </li>
+        <li routerLinkActive="active" (click)="this.navigateOptions('graphics')">
+            <a  [routerLink]="this.navigateToGraphics()">Graphics</a>
+        </li>
+    </ul>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</section>

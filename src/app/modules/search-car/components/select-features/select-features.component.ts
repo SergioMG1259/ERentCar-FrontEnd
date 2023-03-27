@@ -1,9 +1,17 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FeatureSelect } from 'src/app/core/models/featureSelect';
+
 import { trigger,style,transition,animate, state } from '@angular/animations';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { ClickOutService } from 'src/app/core/services/click-out.service';
 import { tap } from 'rxjs/operators';
+import { DictionayFeatureIcon } from 'src/app/core/dictionary/dictionary-feature-icon';
+import { Feature, features } from 'src/app/core/models/feature-array';
+import { SelectionModel } from '@angular/cdk/collections';
+
+interface FeatureSelect{
+  feature:Feature
+  selected:boolean
+}
 
 @Component({
   selector: 'app-select-features',
@@ -31,12 +39,13 @@ export class SelectFeaturesComponent implements OnInit {
   @ViewChild('selectComponent',{ static: false }) selectComponent!: ElementRef;
 
   show:boolean=false
-  features:FeatureSelect[]=[{'name':'Bluetooh','icon':'bx bx-bluetooth','select':false},
-  {'name':'Bike Rack','icon':'bx bx-cycling','select':false},
-  {'name':'USB Input','icon':'bx bx-usb','select':false},
-  {'name':'Pet Friendly','icon':'bx bxl-baidu','select':false},
-  {'name':'GPS','icon':'bx bx-map','select':false},
-  {'name':'AC','icon':'bx bx-wind','select':false}]
+  features=features
+  dictionary:DictionayFeatureIcon=new DictionayFeatureIcon()
+  selection=new SelectionModel<Feature>(
+    true,
+    
+  )
+
 
   clickMenuSubject$=new BehaviorSubject<boolean>(false);/*sujeto de bools que se activa al mostar las opciones*/
   clickMenu$:Observable<boolean>=this.clickMenuSubject$.asObservable();/*observable del sujeto de bools*/
@@ -48,7 +57,7 @@ export class SelectFeaturesComponent implements OnInit {
     this.clickMenuSubject$.next(!this.show)
   }
   clickSelect(feature:FeatureSelect){
-    feature.select=!feature.select
+    feature.selected=!feature.selected
   }
   documentClickListener(target: HTMLElement): void {
     const clickInside=this.selectComponent.nativeElement.contains(target);

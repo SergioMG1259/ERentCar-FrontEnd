@@ -1,0 +1,11 @@
+<section class="container">
+    <div class="grid">
+        <div class="column flex">
+            <app-rent-owner-card *ngFor="let item of [1,2,3,4,5]"></app-rent-owner-card>
+        </div>
+        <div class="column flex">
+            <app-rent-owner-card *ngFor="let item of [1,2,3,4,5]"></app-rent-owner-card>
+        </div>
+    </div>
+    <app-pagination [pageCurrent]="1" [totalPages]="10"></app-pagination>
+</section>

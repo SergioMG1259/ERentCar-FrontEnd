@@ -17,4 +17,5 @@ export interface Car{
     rating:number
     seats:number
     type:string
+    year:number
 }

@@ -1,6 +1,11 @@
+/* :host{
+    display: inline-block;
+} */
 .container{
     position: relative;
-    width: 320px;
+    /* max-width: 325px;
+    min-width: 250px; */
+    width: 100%;
 }
 .content{
     background: #313242;
@@ -37,8 +42,8 @@
     /*transition: 0.3s;*/
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 20px;
+    justify-content: space-evenly;
+    gap:15px;
     width: 100%;
     z-index: 10;
     position: absolute;
@@ -75,4 +80,7 @@
     color: #fff;
     background-color: #f0a535;
     border-color: #313242;
+}
+app-my-checkbox{
+    display: none;
 }

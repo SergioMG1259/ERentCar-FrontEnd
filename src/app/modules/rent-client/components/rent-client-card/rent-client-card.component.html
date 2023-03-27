@@ -1,4 +1,4 @@
-<div class="card" >
+<!-- <div class="card" >
     <p class="date"><span><i class='bx bx-calendar'></i> 10/12/2022, 8:00 - 11/12/2022, 8:00 </span></p>
     <div class="card-content flex">
         <div class="left flex">
@@ -18,4 +18,25 @@
             <app-my-button>Cancel</app-my-button>
         </div>
     </div>
+</div> -->
+<div class="card" >
+    <p class="date"><span><i class='bx bx-calendar'></i> 10/12/2022, 8:00 - 11/12/2022, 8:00 </span></p>
+    <div class="flex card-content">
+        <div class="flex status">
+            <p>Waiting</p>
+        </div>
+        <div class="left flex">
+            <img src="https://mclaren.scene7.com/is/image/mclaren/DSC00052_6:crop-1x1?wid=1200&hei=1200" alt="car-reservation">
+            <div class="info">
+                <p class="brand">Toyota</p>
+                <p class="model">modelo nuevo 2022</p>
+            </div>
+            <i class='bx bx-dots-vertical-rounded'[dropdownTriggerFor]="dropdown"></i>
+        </div>
+        
+    </div>
 </div>
+<app-menu-drop-down #dropdown>
+    <div class="dropdown-item">Add Time</div>
+    <div class="dropdown-item">End Rent</div>
+</app-menu-drop-down>

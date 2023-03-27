@@ -15,6 +15,8 @@ import { PruebaComponent } from './components/prueba/prueba.component';
 import { MyInputDirective } from './directives/my-input.directive';
 import { MyButtonDirective } from './directives/my-button.directive';
 import { MyCheckboxComponent } from './components/my-checkbox/my-checkbox.component';
+import { DropdownTriggerDirective } from './directives/dropdown-trigger.directive';
+import { MenuDropDownComponent } from './components/menu-drop-down/menu-drop-down.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { MyCheckboxComponent } from './components/my-checkbox/my-checkbox.compon
     MyInputDirective,
     MyButtonDirective,
     MyCheckboxComponent,
+    DropdownTriggerDirective,
+    MenuDropDownComponent,
   ],
   imports: [
     CommonModule,
@@ -53,7 +57,9 @@ import { MyCheckboxComponent } from './components/my-checkbox/my-checkbox.compon
     PruebaComponent,
     MyInputDirective,
     MyButtonDirective,
-    MyCheckboxComponent
+    MyCheckboxComponent,
+    DropdownTriggerDirective,
+    MenuDropDownComponent
   ]
 })
 export class SharedModule { }

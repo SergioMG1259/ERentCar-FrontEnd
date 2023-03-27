@@ -25,7 +25,7 @@ export class SideBarComponent implements OnInit {
       this.hiddenNav=false
     }
 
-    if(this.rol=='owner'){
+    if(this.rol=='client'){
       this.options=[
         {title:'Search',icon:'bx bx-search-alt-2',link:'/Dashboard/client/search'},
         {title:'Reservations',icon:'bx bx-calendar-event',link:'/Dashboard/client/reservations'},

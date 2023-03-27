@@ -6,12 +6,13 @@
    <div class="info-card">
       <div class="model">
          <div class="model-heart center-vertical">
-            <p>{{this.car.brand.name+" "+ this.car.model}}</p>
+            <p>{{this.car.brand.name+" "+ this.car.model+" "+this.car.year}}</p>
             <i class='bx bx-heart'></i>
          </div>
-         <div class="stars center-vertical">
+         <div class="center-vertical stars">
             <!--<i *ngFor="let item of [0,1,2,3,4]; index as i" [ngClass]="this.returnStars(i)" ></i>-->
             <app-stars [(rating)]="this.car.rating"></app-stars>
+            <p>{{car.mileage+" Km"}}</p>
          </div>
       </div>
       <div class="features">

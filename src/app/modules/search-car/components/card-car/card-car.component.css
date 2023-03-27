@@ -47,6 +47,11 @@
 }
 .stars{
     height: 25px;
+    justify-content: space-between;
+}
+.stars p{
+    color: white;
+    font-size: 0.9rem;
 }
 .features{
     display: flex;

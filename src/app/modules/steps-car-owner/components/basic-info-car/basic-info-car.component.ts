@@ -35,7 +35,8 @@ export class BasicInfoCarComponent implements OnInit,OnDestroy {
     brand:new FormControl('Toyota',Validators.required),
     model:new FormControl('Crown',Validators.required),
     type:new FormControl('Car',Validators.required),
-    seat:new FormControl('5',Validators.required)
+    seat:new FormControl('5',Validators.required),
+    year:new FormControl('2023',Validators.required)
   })
   @HostBinding('@fadeIn') arcAnimation() {}
   constructor(private clickOutService:ClickOutService,private formService:FormValidationStepperService) {
@@ -80,6 +81,9 @@ export class BasicInfoCarComponent implements OnInit,OnDestroy {
   }
   get seatControl(){
     return this.basicInfoForm.get('seat') as FormControl;
+  }
+  get yearControl(){
+    return this.basicInfoForm.get('year') as FormControl;
   }
 
   ngOnInit(): void {

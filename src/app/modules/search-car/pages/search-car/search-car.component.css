@@ -6,51 +6,64 @@
 .button-filter{
     display: none;
 }
-.filter{
-    background: #242535;
-    padding: 20px 30px;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+.max-container{
     max-width: 1300px;
     margin: auto;
+}
+.filter{
+    background: #242535;
+    padding: 20px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     z-index: 3;
     border-radius: 8px;
-}
-.filter-content{
-    display: flex;
     flex-wrap: wrap;
+    column-gap: 10px;
     row-gap: 20px;
     justify-content: space-between;
 }
-.select-brand{
+/* .filter-content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+} */
+/* .select-brand{
     margin-right: 5px;
-}
+} */
 .container{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
+.flex{
+    display: flex;
+}
 .bottom-filter{
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 20px;
     text-align: right;
 }
-.input{
-    width: 160px;
+input{
+    width: 140px;
 }
 .select{
-    width: 160px;
+    width: 150px;
+}
+.select-features{
+    /* width: 250px; */
+    max-width: 470px;
+    width: 470px;
+}
+.container-select{
+    flex-wrap: wrap;
+    gap: 10px;
 }
 .button-result{
     width: 160px;
 }
 .cars{
     width: 100%;
-    max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
+    
     margin-top: 30px;
    /* display: flex;
     flex-wrap: wrap;
@@ -70,19 +83,26 @@
     .filter{
         position: absolute;
         transition: 0.3s;
+        padding: 10px 5px;
     }
     .close-filter{
         left: -100%;
     }
     .show-filter{
-        top: 120px;
+        /* top: 120px; */
         left: 0;
     }
-    .input{
-        width: 142px;
+    .container-select{
+        gap: 5px;
+    }
+    input{
+        width: 125px;
     }
     .select{
-        width: 140px;
+        width: 120px;
+    }
+    .select-features{
+        width: 250px;
     }
     .container{
         justify-content: center;

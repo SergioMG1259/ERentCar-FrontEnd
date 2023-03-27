@@ -16,10 +16,10 @@ const routes: Routes = [
     .then(m=>m.RentClientModule)
   },{
     path:'schedule',
-    loadChildren:()=>import('src/app/modules/schedule-client/schedule-client.module').then(m=>m.ScheduleClientModule)
+    loadChildren:()=>import('src/app/modules/schedule/schedule.module').then(m=>m.ScheduleModule)
   },{
     path:'profile',
-    loadChildren:()=>import('src/app/modules/profile-client/profile-client.module').then(m=>m.ProfileClientModule)
+    loadChildren:()=>import('src/app/modules/profile-user/profile-user.module').then(m=>m.ProfileUserModule)
   }
 ];
 

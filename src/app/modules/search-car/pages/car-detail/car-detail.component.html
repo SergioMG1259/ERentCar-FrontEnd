@@ -43,7 +43,7 @@
     </div>
     <div class="middle">
         <div class="images background">
-            <p class="title">{{car.brand.name+" - "+car.model}}</p>
+            <p class="title">{{car.brand.name+" - "+car.model+" "+car.year}}</p>
             <div class="image-active" #imageContainer 
             (mouseenter)="this.mouseEnter()" (mousemove)="this.mouseMove($event)" (mouseleave)="this.mouseLeave()">
                  <img src="{{this.imageSelected.image.url}}" alt="image-selected"

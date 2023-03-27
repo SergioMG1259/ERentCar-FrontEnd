@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+*{
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+}
+.dropdown-content {
+    width: auto;
+    padding: 5px 8px;
+    background-color: #313242;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }

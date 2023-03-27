@@ -67,7 +67,7 @@ export class CarDetailComponent implements OnInit {
         {name:'GPS'},
         {name:'Bluetooth'},
         {name:'Bluetooth'},
-      ]
+      ],year:2020
     }
     this.images=this.car.images
     this.itemImages=this.images.map(image=>({image:image,selected:false}));
